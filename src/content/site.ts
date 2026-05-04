@@ -19,6 +19,12 @@ export const site = {
   },
 } as const;
 
+/** Spotify embeds — paste iframe `src` from Spotify → Share → Embed */
+export const media = {
+  spotifyArtistEmbedSrc:
+    "https://open.spotify.com/embed/artist/0ue0G3C50nNmMpzcRgW4UV?utm_source=generator&theme=0",
+} as const;
+
 export const quotes = [
   "A lot of people done wrong, a lot of people fuss and fight, a lot of people just looking for some place to rest their head at night. It's another brand new day and another season. I and I arise to do JAH work 'cause Love Need No Reason — Magi",
   "Daniel's mission to be a voice of peace and reason brings an authentic and heartfelt sound that is refreshing. In a sea of hype and pretense, Daniel Wilson brings the audience together through reggae, yet keeps them together through positive encouragement via a message everyone can feel. — Ras Elijah Tafari",

@@ -5,6 +5,7 @@ import Home from "@/pages/Home";
 import Music from "@/pages/Music";
 import Shows from "@/pages/Shows";
 import Epk from "@/pages/Epk";
+import Media from "@/pages/Media";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/NotFound";
 
@@ -16,6 +17,7 @@ export default function App() {
         <Route element={<RootLayout />}>
           <Route index element={<Home />} />
           <Route path="/music" element={<Music />} />
+          <Route path="/media" element={<Media />} />
           <Route path="/shows" element={<Shows />} />
           <Route path="/epk" element={<Epk />} />
           <Route path="/contact" element={<Contact />} />

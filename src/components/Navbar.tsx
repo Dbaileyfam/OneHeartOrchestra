@@ -7,6 +7,7 @@ import { site } from "@/content/site";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/music", label: "Music" },
+  { to: "/media", label: "Media" },
   { to: "/shows", label: "Shows" },
   { to: "/epk", label: "EPK" },
   { to: "/contact", label: "Contact" },
