@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, Music2, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { site } from "@/content/site";
 
@@ -11,6 +11,8 @@ const nav = [
   { to: "/epk", label: "EPK" },
   { to: "/contact", label: "Contact" },
 ] as const;
+
+const navLogoSrc = `${import.meta.env.BASE_URL}one-heart-logo.png`;
 
 function linkClass(isActive: boolean) {
   return [
@@ -29,14 +31,23 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:py-4">
         <Link
           to="/"
+          aria-label={`${site.shortName} home`}
           className="group flex items-center gap-2 text-left"
           onClick={() => setOpen(false)}
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-oho-forest to-oho-bg ring-1 ring-oho-gold/30 transition-transform group-hover:scale-105">
-            <Music2 className="h-5 w-5 text-oho-gold" aria-hidden />
+          <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-oho-forest to-oho-bg p-1 ring-1 ring-oho-gold/30 transition-transform group-hover:scale-105">
+            <img
+              src={navLogoSrc}
+              alt=""
+              width={40}
+              height={40}
+              decoding="async"
+              className="h-full w-full object-contain"
+              aria-hidden
+            />
           </span>
           <span className="hidden leading-tight sm:block">
-            <span className="block font-display text-lg tracking-tight text-oho-cream">
+            <span className="block font-display text-lg font-normal tracking-tight text-oho-cream">
               One Heart
             </span>
             <span className="text-xs font-medium uppercase tracking-[0.2em] text-oho-gold-muted">

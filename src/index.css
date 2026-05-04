@@ -61,14 +61,6 @@
   }
 }
 
-@layer utilities {
-  .font-display {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-style: normal;
-  }
-}
-
 @keyframes oho-gradient-shift {
   0%,
   100% {
@@ -104,10 +96,18 @@
 }
 
 @layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-style: normal;
+  }
+
   .oho-text-gradient {
     @apply bg-gradient-to-r from-oho-gold via-oho-cream to-oho-rose bg-clip-text text-transparent;
     background-size: 200% auto;
     animation: oho-gradient-shift 8s ease infinite;
+    -webkit-text-fill-color: transparent;
+    -webkit-font-smoothing: antialiased;
   }
 
   .oho-animate-float {
