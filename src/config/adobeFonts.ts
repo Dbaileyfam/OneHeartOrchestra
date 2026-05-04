@@ -7,4 +7,4 @@
  *
  * You can also set `VITE_ADOBE_FONTS_KIT` in `.env` (overrides this when set).
  */
-export const ADOBE_TYPEKIT_KIT_ID = "";
+export const ADOBE_TYPEKIT_KIT_ID = "dth1kek";
