@@ -3,13 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 
-const adobeKit = import.meta.env.VITE_ADOBE_FONTS_KIT?.trim();
-if (adobeKit) {
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = `https://use.typekit.net/${adobeKit}.css`;
-  document.head.appendChild(link);
-}
+/* Typekit CSS is injected into index.html at build time (see vite.config.ts). */
 
 const displayOverride = import.meta.env.VITE_ADOBE_DISPLAY_FAMILY?.trim();
 if (displayOverride) {
