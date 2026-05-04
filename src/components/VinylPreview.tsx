@@ -19,10 +19,6 @@ export function VinylPreview() {
         className="absolute inset-[14%] rounded-full bg-gradient-to-br from-oho-rose/90 to-oho-forest/90 opacity-90"
         aria-hidden
       />
-      <div
-        className="absolute inset-[34%] rounded-full border border-oho-gold/30 bg-black/25 backdrop-blur-[2px]"
-        aria-hidden
-      />
       <img
         src={logoSrc}
         alt="One Heart Orchestra logo"
