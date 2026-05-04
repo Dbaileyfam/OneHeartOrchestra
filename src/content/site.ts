@@ -46,8 +46,6 @@ export const media = {
     { file: "epk-winter-field.png", alt: "The band in a snowy field with mountains" },
     { file: "epk-log-cabin.png", alt: "The band in front of a log cabin at golden hour" },
     { file: "epk-desert-sky.png", alt: "Group portrait outdoors under a clear sky" },
-    { file: "epk-live-el-camino.png", alt: "Live on stage with El Camino backdrop" },
-    { file: "epk-live-bob-marley-poster.png", alt: "Live performance on stage" },
   ],
 } as const;
 

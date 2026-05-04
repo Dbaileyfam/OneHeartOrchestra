@@ -88,20 +88,31 @@ export default function Epk() {
             Press and promo — right-click to save for posters and listings.
           </p>
           <div className="mt-8 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {media.epkPhotos.map((photo) => (
-              <figure
-                key={photo.file}
-                className="w-full overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
-              >
-                <img
-                  src={`${base}epk/${photo.file}`}
-                  alt={photo.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="block h-auto w-full max-w-full align-middle"
-                />
-              </figure>
-            ))}
+            {media.epkPhotos.map((photo) => {
+              const isMagiPortrait = photo.file === "epk-magi.png";
+              return (
+                <figure
+                  key={photo.file}
+                  className={
+                    isMagiPortrait
+                      ? "relative aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10 sm:max-w-none"
+                      : "w-full overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
+                  }
+                >
+                  <img
+                    src={`${base}epk/${photo.file}`}
+                    alt={photo.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className={
+                      isMagiPortrait
+                        ? "absolute inset-0 h-full w-full object-cover object-[50%_18%]"
+                        : "block h-auto w-full max-w-full align-middle"
+                    }
+                  />
+                </figure>
+              );
+            })}
           </div>
         </motion.section>
 
