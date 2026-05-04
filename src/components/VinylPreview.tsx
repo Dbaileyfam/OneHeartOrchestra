@@ -5,55 +5,42 @@ const logoSrc = `${import.meta.env.BASE_URL}one-heart-logo.png`;
 export function VinylPreview() {
   return (
     <motion.div
-      className="group relative mx-auto aspect-square w-48 md:w-56 rounded-full"
+      className="group relative mx-auto aspect-square w-52 md:w-60 rounded-full"
       initial={{ rotate: 0 }}
       whileHover={{ rotate: 360 * 2 }}
       transition={{ duration: 2.6, ease: [0.22, 1, 0.36, 1] }}
       whileTap={{ scale: 0.97 }}
     >
-      {/* Vinyl base — deep, high-contrast black */}
+      {/* Vinyl base — inner area is just the disc; no separate colored ring */}
       <div
-        className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_32%_24%,rgba(255,255,255,0.09),transparent_34%),radial-gradient(circle_at_50%_120%,rgba(228,184,46,0.06),transparent_48%),radial-gradient(circle_at_50%_50%,#2b2e2c_0%,#121413_38%,#050605_72%,#020302_100%)] shadow-[0_26px_56px_-12px_rgba(0,0,0,0.95),0_0_0_1px_rgba(228,184,46,0.22),inset_0_0_0_1px_rgba(255,255,255,0.04)] ring-[3px] ring-oho-gold/45"
+        className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_32%_24%,rgba(255,255,255,0.09),transparent_34%),radial-gradient(circle_at_50%_118%,rgba(228,184,46,0.07),transparent_46%),radial-gradient(circle_at_50%_50%,#2f3230_0%,#151716_32%,#060807_68%,#020302_100%)] shadow-[0_28px_60px_-12px_rgba(0,0,0,0.96),0_0_0_1px_rgba(228,184,46,0.24),inset_0_0_0_1px_rgba(255,255,255,0.04)] ring-[3px] ring-oho-gold/45"
         aria-hidden
       />
 
-      {/* Grooves: only in outer “run-out” band, not over the center art */}
+      {/* Grooves: outer run-out only — center stays clean for the heart art */}
       <div
-        className="pointer-events-none absolute inset-[5%] rounded-full opacity-[0.32]"
+        className="pointer-events-none absolute inset-[4%] rounded-full opacity-[0.34]"
         style={{
           background:
             "repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,0.055) 0 1.5px, transparent 1.5px 3.5px)",
           WebkitMaskImage:
-            "radial-gradient(farthest-side, transparent 0, transparent 36%, #000 37%, #000 93%, transparent 94%)",
+            "radial-gradient(farthest-side, transparent 0, transparent 44%, #000 45%, #000 92%, transparent 93%)",
           maskImage:
-            "radial-gradient(farthest-side, transparent 0, transparent 36%, #000 37%, #000 93%, transparent 94%)",
+            "radial-gradient(farthest-side, transparent 0, transparent 44%, #000 45%, #000 92%, transparent 93%)",
         }}
         aria-hidden
       />
 
-      {/* Outer rim */}
       <div
-        className="pointer-events-none absolute inset-[4%] rounded-full ring-1 ring-black/70"
+        className="pointer-events-none absolute inset-[3%] rounded-full ring-1 ring-black/75"
         aria-hidden
       />
 
-      {/* Colored play area (rose → forest) — same role as before, not a “label hole” */}
-      <div
-        className="absolute inset-[14%] rounded-full bg-gradient-to-br from-oho-rose/85 to-oho-forest/90 opacity-95 shadow-[inset_0_0_24px_rgba(0,0,0,0.35)] ring-1 ring-black/30"
-        aria-hidden
-      />
-
-      {/* Subtle read on the play area */}
-      <div
-        className="pointer-events-none absolute inset-[14%] rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(255,255,255,0.08),transparent_55%)] mix-blend-soft-light opacity-70"
-        aria-hidden
-      />
-
-      {/* Logo: same large scale as earlier; centered on the whole record, above the green/pink ring */}
+      {/* Heart fills the former “label” zone — larger, dead center on the disc */}
       <img
         src={logoSrc}
         alt="One Heart Orchestra logo"
-        className="absolute left-1/2 top-1/2 z-20 h-[58%] w-[58%] max-h-[168px] max-w-[168px] -translate-x-1/2 -translate-y-1/2 object-contain object-center drop-shadow-[0_10px_28px_rgba(0,0,0,0.65)] transition-transform duration-300 group-hover:scale-[1.04] group-hover:animate-pulse md:max-h-[182px] md:max-w-[182px]"
+        className="absolute left-1/2 top-1/2 z-10 h-[72%] w-[72%] max-h-[220px] max-w-[220px] -translate-x-1/2 -translate-y-1/2 object-contain object-center drop-shadow-[0_12px_32px_rgba(0,0,0,0.7)] transition-transform duration-300 group-hover:scale-[1.03] group-hover:animate-pulse md:max-h-[248px] md:max-w-[248px]"
         draggable={false}
       />
     </motion.div>
