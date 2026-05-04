@@ -23,6 +23,20 @@ export const site = {
 export const media = {
   spotifyArtistEmbedSrc:
     "https://open.spotify.com/embed/artist/0ue0G3C50nNmMpzcRgW4UV?utm_source=generator&theme=0",
+  /** YouTube watch URLs → embed uses youtube.com/embed/:id */
+  youtubeVideoIds: [
+    "9Lq8-dRlQuA",
+    "ukueVvmMoqw",
+    "a9UmAZ6gh-8",
+    "GbdnHZvZPio",
+  ],
+  /** Files in public/media/ */
+  promoPhotos: [
+    { file: "promo-log-cabin.png", alt: "The One Heart Orchestra in front of a log cabin" },
+    { file: "promo-winter-field.png", alt: "The band in a snowy field with blue sky" },
+    { file: "promo-magi.png", alt: "Magi with guitar" },
+    { file: "promo-desert-sky.png", alt: "The band outdoors under a clear sky" },
+  ],
 } as const;
 
 export const quotes = [
