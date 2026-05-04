@@ -5,8 +5,8 @@
 /* Forest / gold / rose — single coherent story (no mint). */
 @theme {
   --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
-  /* Rounded poster title — pairs with the One Heart logo artwork */
-  --font-display: "Fredoka One", "Fredoka", system-ui, sans-serif;
+  /* Acid Green Poster (Adobe Fonts) + Fredoka fallback — load kit via VITE_ADOBE_FONTS_KIT */
+  --font-display: "acid-green-poster", "Fredoka One", "Fredoka", system-ui, sans-serif;
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 
   --color-oho-bg: #050907;
@@ -58,6 +58,13 @@
 
   ::selection {
     @apply bg-oho-rose/35 text-oho-cream;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-weight: 400;
+    font-style: normal;
   }
 }
 

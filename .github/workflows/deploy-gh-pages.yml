@@ -28,6 +28,9 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_ADOBE_FONTS_KIT: ${{ secrets.VITE_ADOBE_FONTS_KIT }}
+          VITE_ADOBE_DISPLAY_FAMILY: ${{ secrets.VITE_ADOBE_DISPLAY_FAMILY }}
 
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v4
