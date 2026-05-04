@@ -19,13 +19,18 @@ This project uses **hash routing** (`/#/music`, etc.) so it works on GitHub Page
 
 1. Create the repo (or use [Dbaileyfam/OneHeartOrchestra](https://github.com/Dbaileyfam/OneHeartOrchestra)) and push this folder as the repo root (or make this directory its own git repo).
 2. In the GitHub repo: **Settings → Pages → Branch `gh-pages` / root**.
-3. From this directory:
+3. In this folder, use one command:
 
 ```bash
-npm run deploy
+npm run ship
 ```
 
-The site will be available at **https://dbaileyfam.github.io/OneHeartOrchestra/** (adjust `homepage` in `package.json` if the repo name or owner changes).
+`npm run ship`:
+- builds the site
+- publishes to `gh-pages`
+- verifies the live URL is serving built assets (not source HTML)
+
+The site will be available at **https://dbaileyfam.github.io/OneHeartOrchestra/** (adjust `homepage` in `package.json` and `scripts/verify-pages.mjs` if repo name or owner changes).
 
 ## Custom domain (optional)
 
