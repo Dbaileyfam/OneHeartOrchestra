@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Forest / gold / rose — single coherent story (no mint). */
+@theme {
+  --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+
+  --color-oho-bg: #050907;
+  --color-oho-surface: #0b1410;
+  --color-oho-elevated: #122018;
+  --color-oho-border: #2a4034;
+
+  --color-oho-gold: #e4b82e;
+  --color-oho-gold-muted: #a67d24;
+  --color-oho-gold-soft: rgba(228, 184, 46, 0.12);
+
+  --color-oho-cream: #f2eadb;
+  --color-oho-cream-muted: rgba(242, 234, 219, 0.55);
+
+  --color-oho-forest: #1a5c3e;
+  --color-oho-forest-deep: #0d281c;
+  --color-oho-forest-glow: #2a7a55;
+
+  --color-oho-rose: #c75d6f;
+  --color-oho-rose-muted: #944a58;
+  --color-oho-rose-soft: rgba(199, 93, 111, 0.14);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-oho-bg text-oho-cream font-sans antialiased overflow-x-hidden;
+    background-image:
+      radial-gradient(
+        ellipse 120% 80% at 50% -20%,
+        color-mix(in oklab, var(--color-oho-forest) 35%, transparent),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 80% 50% at 100% 50%,
+        color-mix(in oklab, var(--color-oho-rose) 8%, transparent),
+        transparent 45%
+      ),
+      radial-gradient(
+        ellipse 70% 45% at 0% 80%,
+        color-mix(in oklab, var(--color-oho-forest-deep) 50%, transparent),
+        transparent 50%
+      );
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-oho-rose/35 text-oho-cream;
+  }
+}
+
+@keyframes oho-gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes oho-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+@keyframes oho-pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .oho-text-gradient {
+    @apply bg-gradient-to-r from-oho-gold via-oho-cream to-oho-rose bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: oho-gradient-shift 8s ease infinite;
+  }
+
+  .oho-animate-float {
+    animation: oho-float 7s ease-in-out infinite;
+  }
+
+  .oho-ring-pulse::after {
+    content: "";
+    @apply absolute inset-0 rounded-full border-2 border-oho-gold/45;
+    box-shadow: 0 0 28px color-mix(in oklab, var(--color-oho-rose) 35%, transparent);
+    animation: oho-pulse-ring 2.8s ease-out infinite;
+  }
+}
