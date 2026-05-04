@@ -50,7 +50,7 @@ export function Navbar() {
             <span className="block font-display text-lg font-normal tracking-tight text-oho-cream">
               One Heart
             </span>
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-oho-gold-muted">
+            <span className="font-display text-xs font-normal uppercase tracking-[0.2em] text-oho-gold-muted">
               Orchestra
             </span>
           </span>
