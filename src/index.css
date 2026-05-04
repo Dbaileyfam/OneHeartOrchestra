@@ -5,8 +5,8 @@
 /* Forest / gold / rose — single coherent story (no mint). */
 @theme {
   --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
-  /* Acid Green Poster (Adobe Fonts) + Fredoka fallback — load kit via VITE_ADOBE_FONTS_KIT */
-  --font-display: "acid-green-poster", "Fredoka One", "Fredoka", system-ui, sans-serif;
+  /* Adobe: font-family: "acid-green-poster", sans-serif; + fallbacks if Typekit is slow */
+  --font-display: "acid-green-poster", "Fredoka One", "Fredoka", sans-serif;
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 
   --color-oho-bg: #050907;
@@ -63,6 +63,7 @@
 
 @layer utilities {
   .font-display {
+    font-family: var(--font-display);
     font-weight: 400;
     font-style: normal;
   }

@@ -13,7 +13,7 @@ if (displayOverride) {
     .join(", ");
   document.documentElement.style.setProperty(
     "--font-display",
-    `${names}, "Fredoka One", "Fredoka", system-ui, sans-serif`,
+    `${names}, "Fredoka One", "Fredoka", sans-serif`,
   );
 }
 
