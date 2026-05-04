@@ -77,20 +77,18 @@ export default function Media() {
         <p className="mt-2 max-w-2xl text-oho-cream/65">
           Press and promo shots — save images via right-click if you need files for posters or listings.
         </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <div className="mt-8 grid items-start gap-6 sm:grid-cols-2">
           {media.promoPhotos.map((photo) => (
             <figure
               key={photo.file}
-              className="overflow-hidden rounded-2xl border border-oho-border bg-oho-elevated/50 ring-1 ring-oho-gold/10"
+              className="w-full overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
             >
               <img
                 src={`${base}media/${photo.file}`}
                 alt={photo.alt}
-                width={1200}
-                height={800}
                 loading="lazy"
                 decoding="async"
-                className="h-full w-full object-cover"
+                className="block h-auto w-full max-w-full align-middle"
               />
             </figure>
           ))}

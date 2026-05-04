@@ -87,18 +87,18 @@ export default function Epk() {
           <p className="mt-2 max-w-2xl text-oho-cream/65">
             Press and promo — right-click to save for posters and listings.
           </p>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {media.epkPhotos.map((photo) => (
               <figure
                 key={photo.file}
-                className="flex overflow-hidden rounded-2xl border border-oho-border bg-oho-bg/90 ring-1 ring-oho-gold/10"
+                className="w-full overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
               >
                 <img
                   src={`${base}epk/${photo.file}`}
                   alt={photo.alt}
                   loading="lazy"
                   decoding="async"
-                  className="mx-auto block h-auto w-full object-contain object-center"
+                  className="block h-auto w-full max-w-full align-middle"
                 />
               </figure>
             ))}
