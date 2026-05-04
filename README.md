@@ -18,8 +18,9 @@ npm run dev
 This project uses **hash routing** (`/#/music`, etc.) so it works on GitHub Pages without extra server rules.
 
 1. Create the repo (or use [Dbaileyfam/OneHeartOrchestra](https://github.com/Dbaileyfam/OneHeartOrchestra)) and push this folder as the repo root (or make this directory its own git repo).
-2. In the GitHub repo: **Settings → Pages → Branch `gh-pages` / root**.
-3. In this folder, use one command:
+2. In the GitHub repo: **Settings → Pages → Build and deployment → Source** must be **Deploy from a branch** → **`gh-pages`** → **`/` (root)**.
+3. Pushing to `main` will auto-deploy via GitHub Actions (`.github/workflows/deploy-gh-pages.yml`).
+4. From your machine you can also deploy manually:
 
 ```bash
 npm run ship
@@ -31,6 +32,10 @@ npm run ship
 - verifies the live URL is serving built assets (not source HTML)
 
 The site will be available at **https://dbaileyfam.github.io/OneHeartOrchestra/** (adjust `homepage` in `package.json` and `scripts/verify-pages.mjs` if repo name or owner changes).
+
+### If the live site is blank
+
+That almost always means Pages is publishing **`main`** while `main` contains the Vite dev `index.html` (`/src/main.tsx`). Switch Pages to **`gh-pages`** as described above, wait ~1–2 minutes, hard refresh.
 
 ## Custom domain (optional)
 

@@ -1,29 +1,97 @@
 const homepage = "https://dbaileyfam.github.io/OneHeartOrchestra/";
 
-async function check() {
-  const res = await fetch(homepage, { redirect: "follow" });
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function extractFirst(html, re) {
+  const m = html.match(re);
+  return m?.[1] ?? null;
+}
+
+async function fetchText(url) {
+  const res = await fetch(url, {
+    redirect: "follow",
+    headers: {
+      "cache-control": "no-cache",
+      pragma: "no-cache",
+    },
+  });
   if (!res.ok) {
-    throw new Error(`Failed to fetch ${homepage} (${res.status})`);
+    throw new Error(`Failed to fetch ${url} (${res.status})`);
   }
+  return await res.text();
+}
 
-  const html = await res.text();
+async function fetchOk(url) {
+  const res = await fetch(url, {
+    method: "HEAD",
+    redirect: "follow",
+    headers: {
+      "cache-control": "no-cache",
+      pragma: "no-cache",
+    },
+  });
+  return res.ok;
+}
 
-  if (html.includes('/src/main.tsx')) {
+async function verifyOnce() {
+  const busted = `${homepage}?__verify=${Date.now()}`;
+  const html = await fetchText(busted);
+
+  if (html.includes("/src/main.tsx")) {
     throw new Error(
       [
-        "GitHub Pages is serving source index.html (blank page risk).",
-        "Set repo Pages source to: gh-pages branch / root.",
+        "GitHub Pages is serving the Vite dev index.html (blank page).",
+        "Fix: GitHub repo Settings → Pages → Build and deployment → Source:",
+        "set to Deploy from a branch → gh-pages → / (root).",
+        "Do NOT publish from main while main contains /src/main.tsx.",
       ].join(" ")
     );
   }
 
-  if (!html.includes("/OneHeartOrchestra/assets/")) {
-    throw new Error(
-      "Live page does not reference built /OneHeartOrchestra/assets files yet."
-    );
+  const jsHref = extractFirst(
+    html,
+    /<script[^>]+src=["']([^"']+)["'][^>]*>/i
+  );
+  const cssHref = extractFirst(html, /<link[^>]+href=["']([^"']+)["'][^>]*>/i);
+
+  if (!jsHref || !cssHref) {
+    throw new Error("Could not find built JS/CSS references in live index.html.");
   }
 
-  console.log(`Pages check passed: ${homepage}`);
+  if (!jsHref.includes("/OneHeartOrchestra/assets/")) {
+    throw new Error(`Unexpected JS path in live HTML: ${jsHref}`);
+  }
+  if (!cssHref.includes("/OneHeartOrchestra/assets/")) {
+    throw new Error(`Unexpected CSS path in live HTML: ${cssHref}`);
+  }
+
+  const jsUrl = new URL(jsHref, homepage).toString();
+  const cssUrl = new URL(cssHref, homepage).toString();
+
+  const [jsOk, cssOk] = await Promise.all([fetchOk(jsUrl), fetchOk(cssUrl)]);
+  if (!jsOk) {
+    throw new Error(`Live JS bundle not reachable (stale index?): ${jsUrl}`);
+  }
+  if (!cssOk) {
+    throw new Error(`Live CSS bundle not reachable (stale index?): ${cssUrl}`);
+  }
+}
+
+async function check() {
+  let lastErr = null;
+  for (let i = 0; i < 6; i++) {
+    try {
+      await verifyOnce();
+      console.log(`Pages check passed: ${homepage}`);
+      return;
+    } catch (err) {
+      lastErr = err;
+      await sleep(5000);
+    }
+  }
+  throw lastErr ?? new Error("Pages verification failed.");
 }
 
 check().catch((err) => {
