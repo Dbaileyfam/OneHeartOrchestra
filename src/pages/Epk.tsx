@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { album, bio, lineup, site } from "@/content/site";
 
@@ -25,11 +26,17 @@ export default function Epk() {
         <motion.section {...section}>
           <h2 className="font-display text-2xl text-oho-gold">Bio</h2>
           <div className="prose prose-invert prose-p:leading-relaxed mt-4 max-w-none prose-p:text-oho-cream/80">
-            <p>{bio.lead}</p>
-            {bio.extended.split("\n\n").map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
+            <p>{bio.condensed}</p>
           </div>
+          <p className="mt-4 text-sm text-oho-cream/60">
+            <Link
+              to={{ pathname: "/", search: "?scroll=bio" }}
+              className="font-medium text-oho-gold underline-offset-4 transition hover:text-oho-cream hover:underline"
+            >
+              Read the full biography on the home page
+            </Link>
+            .
+          </p>
         </motion.section>
 
         <motion.section {...section}>

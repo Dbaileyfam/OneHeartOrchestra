@@ -31,6 +31,8 @@ export const bio = {
   extended: `Daniel Wilson, known as "Magi," discovered his passion for music at age 16, learning guitar to accompany his singing. Inspired to write original songs following the events of September 11, 2001, Magi has consistently used his art to channel resilience and hope. After relocating to Durango, Colorado, he became a key figure in various reggae projects, culminating in his current endeavor, The One Heart Orchestra.
 
 Magi's early band, Magi Nation, featured the legendary Rasta Stevie—renowned MC of Reggae on the River—as their drummer. This collaboration led to opportunities to perform alongside reggae icons such as Ky-Mani Marley, Collie Buddz, Tarrus Riley, and Kabaka Pyramid. In 2021, Magi began collaborating with Dane Foltin of Austin-based Lion Heights to record his debut album, Words Not Written, released in 2024.`,
+  /** Short blurb for EPK / one-sheets; full story lives on the home page. */
+  condensed: `Led by Daniel "Magi" Wilson, The One Heart Orchestra plays roots reggae colored by country, funk, and blues—from Magi Nation (with Rasta Stevie) to festival stages and the 2024 debut Words Not Written with Lion Heights.`,
 } as const;
 
 export const lineup = [

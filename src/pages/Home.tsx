@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, CalendarDays, Disc3, Sparkles } from "lucide-react";
 import { QuoteRotator } from "@/components/QuoteRotator";
@@ -30,12 +31,23 @@ const tiles = [
   {
     to: "/epk",
     title: "EPK",
-    body: "Bio, lineup, and press-ready story — book with confidence.",
+    body: "Condensed kit: lineup, booking, and press notes.",
     icon: Sparkles,
   },
 ] as const;
 
 export default function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const q = new URLSearchParams(location.search);
+    if (q.get("scroll") !== "bio") return;
+    const el = document.getElementById("bio");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [location]);
+
   return (
     <div>
       <section className="relative overflow-hidden px-4 pb-20 pt-12 md:pb-28 md:pt-16">
@@ -115,7 +127,31 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-oho-border/60 bg-oho-surface/40 px-4 py-16 md:py-20">
+      <section
+        id="bio"
+        className="border-y border-oho-border/60 bg-oho-surface/35 px-4 py-16 md:py-20"
+      >
+        <div className="mx-auto max-w-3xl">
+          <motion.h2
+            className="font-display text-3xl text-oho-cream md:text-4xl"
+            {...fade}
+          >
+            Bio
+          </motion.h2>
+          <motion.div
+            className="prose prose-invert prose-p:leading-relaxed mt-6 max-w-none prose-p:text-oho-cream/85"
+            {...fade}
+            transition={{ ...fade.transition, delay: 0.06 }}
+          >
+            <p>{bio.lead}</p>
+            {bio.extended.split("\n\n").map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="border-y border-oho-border/60 bg-oho-bg/50 px-4 py-16 md:py-20">
         <div className="mx-auto max-w-6xl text-center">
           <motion.h2
             className="font-display text-3xl text-oho-cream md:text-4xl"
@@ -142,7 +178,7 @@ export default function Home() {
             {...fade}
             transition={{ ...fade.transition, delay: 0.05 }}
           >
-            {bio.lead}
+            Music, dates, press kit, and contact — pick a door.
           </motion.p>
 
           <div className="mt-10 grid gap-5 md:grid-cols-3">
