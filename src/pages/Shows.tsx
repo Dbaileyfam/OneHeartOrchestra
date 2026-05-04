@@ -1,16 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin, Clock, ExternalLink } from "lucide-react";
 import { shows } from "@/content/site";
-
-function formatDate(iso: string) {
-  const d = new Date(`${iso}T12:00:00`);
-  return new Intl.DateTimeFormat("en-US", {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  }).format(d);
-}
+import { formatShowDate } from "@/utils/showFormat";
 
 export default function Shows() {
   return (
@@ -42,7 +33,7 @@ export default function Shows() {
               className="flex h-full flex-col rounded-3xl border border-oho-border bg-gradient-to-b from-oho-elevated to-oho-surface p-6 shadow-xl"
             >
               <p className="font-display text-2xl text-oho-gold">
-                {formatDate(s.date)}
+                {formatShowDate(s.date)}
               </p>
               <p className="mt-1 flex items-center gap-2 text-sm text-oho-cream/55">
                 <Clock className="h-4 w-4 shrink-0" aria-hidden />
