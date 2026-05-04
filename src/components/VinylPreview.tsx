@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Heart } from "lucide-react";
 
 export function VinylPreview() {
   return (
@@ -17,8 +18,13 @@ export function VinylPreview() {
         className="absolute inset-[14%] rounded-full bg-gradient-to-br from-oho-rose/90 to-oho-forest/90 opacity-90"
         aria-hidden
       />
-      <div className="absolute inset-[42%] rounded-full border border-white/10 bg-oho-surface/90 backdrop-blur-sm" />
-      <div className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-oho-bg ring-1 ring-oho-gold/50" />
+      <div className="absolute inset-[42%] rounded-full border border-oho-gold/30 bg-oho-surface/95 backdrop-blur-sm" />
+      <div className="group absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-oho-gold/40 bg-oho-forest-deep/90 p-1.5 shadow-[0_0_18px_rgba(228,184,46,0.2)] transition-shadow duration-300 hover:shadow-[0_0_28px_rgba(199,93,111,0.5)]">
+        <Heart
+          className="h-3.5 w-3.5 fill-oho-rose text-oho-rose transition-transform duration-300 group-hover:scale-110 group-hover:animate-pulse"
+          aria-label="One Heart logo mark"
+        />
+      </div>
     </motion.div>
   );
 }
