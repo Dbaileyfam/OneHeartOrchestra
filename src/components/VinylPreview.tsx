@@ -36,13 +36,15 @@ export function VinylPreview() {
         aria-hidden
       />
 
-      {/* Heart fills the former “label” zone — larger, dead center on the disc */}
-      <img
-        src={logoSrc}
-        alt="One Heart Orchestra logo"
-        className="absolute left-1/2 top-1/2 z-10 h-[72%] w-[72%] max-h-[220px] max-w-[220px] -translate-x-1/2 -translate-y-1/2 object-contain object-center drop-shadow-[0_12px_32px_rgba(0,0,0,0.7)] transition-transform duration-300 group-hover:scale-[1.03] group-hover:animate-pulse md:max-h-[248px] md:max-w-[248px]"
-        draggable={false}
-      />
+      {/* Logo: grid-centered so the image box is mathematically centered on the disc */}
+      <div className="pointer-events-none absolute inset-0 z-10 grid place-items-center">
+        <img
+          src={logoSrc}
+          alt="One Heart Orchestra logo"
+          className="pointer-events-auto h-auto w-auto max-h-[min(72%,220px)] max-w-[min(72%,220px)] object-contain object-center drop-shadow-[0_12px_32px_rgba(0,0,0,0.7)] transition-transform duration-300 group-hover:scale-[1.03] group-hover:animate-pulse md:max-h-[min(72%,248px)] md:max-w-[min(72%,248px)]"
+          draggable={false}
+        />
+      </div>
     </motion.div>
   );
 }

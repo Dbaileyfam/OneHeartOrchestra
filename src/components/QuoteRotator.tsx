@@ -23,7 +23,7 @@ export function QuoteRotator() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.45 }}
-          className="text-pretty font-display text-xl italic leading-relaxed text-oho-cream/90 md:text-2xl"
+          className="text-pretty font-serif text-xl italic leading-relaxed text-oho-cream/90 md:text-2xl"
         >
           {quotes[i]}
         </motion.blockquote>

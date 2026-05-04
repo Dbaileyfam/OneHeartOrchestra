@@ -1,11 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Instrument+Serif:ital@0;1&family=Sora:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 /* Forest / gold / rose — single coherent story (no mint). */
 @theme {
   --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  /* Rounded poster title — pairs with the One Heart logo artwork */
+  --font-display: "Fredoka One", "Fredoka", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 
   --color-oho-bg: #050907;
   --color-oho-surface: #0b1410;

@@ -5,6 +5,8 @@ import { QuoteRotator } from "@/components/QuoteRotator";
 import { VinylPreview } from "@/components/VinylPreview";
 import { bio, site } from "@/content/site";
 
+const heroLogoSrc = `${import.meta.env.BASE_URL}one-heart-logo.png`;
+
 const fade = {
   initial: { opacity: 0, y: 18 },
   whileInView: { opacity: 1, y: 0 },
@@ -54,13 +56,24 @@ export default function Home() {
             >
               Durango roots crew
             </motion.p>
-            <motion.h1
-              className="font-display text-4xl leading-[1.08] text-oho-cream md:text-6xl lg:text-7xl"
+            <motion.div
+              className="mb-2 flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:gap-8 sm:text-left"
               {...fade}
               transition={{ ...fade.transition, delay: 0.05 }}
             >
-              <span className="oho-text-gradient">{site.title}</span>
-            </motion.h1>
+              <img
+                src={heroLogoSrc}
+                alt=""
+                width={160}
+                height={160}
+                decoding="async"
+                className="h-28 w-28 shrink-0 object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] sm:h-36 sm:w-36 md:h-40 md:w-40"
+                aria-hidden
+              />
+              <h1 className="font-display min-w-0 text-4xl leading-[1.06] tracking-[0.02em] text-oho-cream md:text-5xl md:leading-[1.05] lg:text-6xl xl:text-7xl">
+                <span className="oho-text-gradient">{site.title}</span>
+              </h1>
+            </motion.div>
             <motion.p
               className="mt-5 max-w-xl text-pretty text-lg text-oho-cream/75 md:text-xl"
               {...fade}
