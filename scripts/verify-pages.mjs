@@ -9,6 +9,18 @@ function extractFirst(html, re) {
   return m?.[1] ?? null;
 }
 
+function extractStylesheetHref(html) {
+  const linkRe = /<link\b[^>]*>/gi;
+  let m;
+  while ((m = linkRe.exec(html)) !== null) {
+    const tag = m[0];
+    if (!/\brel\s*=\s*["']stylesheet["']/i.test(tag)) continue;
+    const hrefM = tag.match(/\bhref\s*=\s*["']([^"']+)["']/i);
+    if (hrefM?.[1]) return hrefM[1];
+  }
+  return null;
+}
+
 async function fetchText(url) {
   const res = await fetch(url, {
     redirect: "follow",
@@ -54,7 +66,7 @@ async function verifyOnce() {
     html,
     /<script[^>]+src=["']([^"']+)["'][^>]*>/i
   );
-  const cssHref = extractFirst(html, /<link[^>]+href=["']([^"']+)["'][^>]*>/i);
+  const cssHref = extractStylesheetHref(html);
 
   if (!jsHref || !cssHref) {
     throw new Error("Could not find built JS/CSS references in live index.html.");
