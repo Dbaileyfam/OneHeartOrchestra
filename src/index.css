@@ -37,22 +37,36 @@
 
   body {
     @apply bg-oho-bg text-oho-cream font-sans antialiased overflow-x-hidden;
-    background-image:
-      repeating-conic-gradient(
-        from 12deg at -10% -8%,
-        rgba(245, 181, 118, 0.44) 0deg 14deg,
-        rgba(240, 228, 183, 0.34) 14deg 28deg,
-        rgba(216, 116, 111, 0.4) 28deg 42deg,
-        rgba(121, 154, 130, 0.4) 42deg 56deg
-      ),
-      linear-gradient(
-        rgba(5, 9, 7, 0.54),
-        rgba(5, 9, 7, 0.54)
-      );
-    background-size: 220% 220%, auto;
-    background-position: -12% -8%, 0% 0%;
-    background-attachment: fixed;
-    animation: oho-sunburst-drift 16s ease-in-out infinite alternate;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -24vmax;
+    z-index: -2;
+    pointer-events: none;
+    background-image: url("/sunrays-bg.png");
+    background-size: cover;
+    background-position: left center;
+    transform-origin: -8% 50%;
+    animation: oho-rays-rotate 28s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: rgba(5, 9, 7, 0.58);
+  }
+
+  #root {
+    position: relative;
+    z-index: 0;
   }
 
   ::selection {
@@ -94,21 +108,21 @@
   }
 }
 
-@keyframes oho-sunburst-drift {
+@keyframes oho-rays-rotate {
   0% {
-    background-position: -18% -10%, 0% 0%;
+    transform: rotate(-1.5deg) scale(1.06);
   }
   50% {
-    background-position: -8% -10%, 0% 0%;
+    transform: rotate(0deg) scale(1.04);
   }
   100% {
-    background-position: 4% -6%, 0% 0%;
+    transform: rotate(1.8deg) scale(1.06);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   @layer base {
-    body {
+    body::before {
       animation: none;
     }
   }
