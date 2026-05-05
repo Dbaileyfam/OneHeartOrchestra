@@ -63,22 +63,18 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <motion.div
-              className="mb-2 flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:gap-8 sm:text-left"
+              className="mb-2 flex justify-center sm:justify-start"
               {...fade}
               transition={{ ...fade.transition, delay: 0.05 }}
             >
               <img
                 src={heroLogoSrc}
-                alt=""
-                width={160}
-                height={160}
+                alt={site.title}
+                width={1024}
+                height={682}
                 decoding="async"
-                className="h-28 w-28 shrink-0 object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] sm:h-36 sm:w-36 md:h-40 md:w-40"
-                aria-hidden
+                className="h-28 w-auto object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] sm:h-36 md:h-44 lg:h-48"
               />
-              <h1 className="min-w-0 text-4xl leading-[1.06] tracking-[0.02em] md:text-5xl md:leading-[1.05] lg:text-6xl xl:text-7xl">
-                <span className="font-display oho-text-gradient">{site.title}</span>
-              </h1>
             </motion.div>
             <motion.p
               className="mt-5 max-w-xl text-pretty text-lg text-oho-cream/75 md:text-xl"
