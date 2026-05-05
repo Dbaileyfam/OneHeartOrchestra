@@ -34,6 +34,21 @@ export default function Epk() {
 
       <div className="mx-auto mt-14 max-w-5xl space-y-16">
         <motion.section {...section}>
+          <h2 className="font-display text-2xl text-oho-gold">Lineup</h2>
+          <ul className="mt-4 space-y-3">
+            {lineup.map((m) => (
+              <li
+                key={m.name}
+                className="flex flex-col rounded-2xl border border-oho-border bg-oho-elevated/60 px-4 py-3 sm:flex-row sm:justify-between sm:gap-4"
+              >
+                <span className="font-medium text-oho-cream">{m.name}</span>
+                <span className="text-sm text-oho-cream/55">{m.role}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.section>
+
+        <motion.section {...section}>
           <h2 className="font-display text-2xl text-oho-gold">Bio</h2>
           <div className="prose prose-invert prose-p:leading-relaxed mt-4 max-w-3xl prose-p:text-oho-cream/80">
             <p>{bio.condensed}</p>
@@ -203,21 +218,6 @@ export default function Epk() {
         </motion.section>
 
         <motion.section {...section} className="mx-auto max-w-3xl space-y-16">
-          <div>
-            <h2 className="font-display text-2xl text-oho-gold">Lineup</h2>
-            <ul className="mt-4 space-y-3">
-              {lineup.map((m) => (
-                <li
-                  key={m.name}
-                  className="flex flex-col rounded-2xl border border-oho-border bg-oho-elevated/60 px-4 py-3 sm:flex-row sm:justify-between sm:gap-4"
-                >
-                  <span className="font-medium text-oho-cream">{m.name}</span>
-                  <span className="text-sm text-oho-cream/55">{m.role}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           <div>
             <h2 className="font-display text-2xl text-oho-gold">Music</h2>
             <p className="mt-4 text-oho-cream/75">
