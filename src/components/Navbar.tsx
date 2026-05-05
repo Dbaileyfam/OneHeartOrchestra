@@ -47,14 +47,6 @@ export function Navbar() {
               aria-hidden
             />
           </span>
-          <span className="hidden leading-tight sm:block">
-            <span className="block font-display text-lg font-normal tracking-tight text-oho-cream">
-              One Heart
-            </span>
-            <span className="font-display text-xs font-normal uppercase tracking-[0.2em] text-oho-gold-muted">
-              Orchestra
-            </span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
