@@ -13,8 +13,8 @@ export const site = {
     spotify: "",
   },
   booking: {
-    /** Set to your public booking email when DNS / inbox is ready */
-    email: "",
+    /** Booking & FormSubmit delivery — keep in sync with live inbox */
+    email: "magivision2020@gmail.com",
     legacyContact: "https://oneheartorchestra.com/contact",
   },
 } as const;

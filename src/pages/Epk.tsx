@@ -49,6 +49,26 @@ export default function Epk() {
           </p>
         </motion.section>
 
+        <motion.section {...section} className="mx-auto max-w-2xl">
+          <h2 className="font-display text-2xl text-oho-gold">Spotify</h2>
+          <p className="mt-2 text-oho-cream/65">
+            Stream {site.shortName} on Spotify — singles, album cuts, and more.
+          </p>
+          <div className="mt-6 overflow-hidden rounded-xl border border-oho-border bg-oho-surface/60 shadow-xl shadow-black/20 ring-1 ring-oho-gold/15">
+            <iframe
+              title={`Spotify — ${site.shortName}`}
+              className="h-[352px] w-full rounded-xl"
+              src={media.spotifyArtistEmbedSrc}
+              width="100%"
+              height={352}
+              frameBorder={0}
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            />
+          </div>
+        </motion.section>
+
         <motion.section {...section}>
           <h2 className="font-display text-2xl text-oho-gold">Video</h2>
           <p className="mt-2 max-w-2xl text-oho-cream/65">
@@ -89,13 +109,13 @@ export default function Epk() {
           </p>
           <div className="mt-8 grid items-start gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {media.epkPhotos.map((photo) => {
-              const isMagiPortrait = photo.file === "epk-magi.png";
+              const soloPortrait = photo.file === "epk-magi.png";
               return (
                 <figure
                   key={photo.file}
                   className={
-                    isMagiPortrait
-                      ? "relative aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10 sm:max-w-none"
+                    soloPortrait
+                      ? "relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
                       : "w-full overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
                   }
                 >
@@ -105,8 +125,8 @@ export default function Epk() {
                     loading="lazy"
                     decoding="async"
                     className={
-                      isMagiPortrait
-                        ? "absolute inset-0 h-full w-full object-cover object-[50%_18%]"
+                      soloPortrait
+                        ? "absolute inset-0 h-full w-full object-cover object-top"
                         : "block h-auto w-full max-w-full align-middle"
                     }
                   />

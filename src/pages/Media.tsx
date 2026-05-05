@@ -78,20 +78,31 @@ export default function Media() {
           Press and promo shots — save images via right-click if you need files for posters or listings.
         </p>
         <div className="mt-8 grid items-start gap-6 sm:grid-cols-2">
-          {media.promoPhotos.map((photo) => (
-            <figure
-              key={photo.file}
-              className="w-full overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
-            >
-              <img
-                src={`${base}media/${photo.file}`}
-                alt={photo.alt}
-                loading="lazy"
-                decoding="async"
-                className="block h-auto w-full max-w-full align-middle"
-              />
-            </figure>
-          ))}
+          {media.promoPhotos.map((photo) => {
+            const soloPortrait = photo.file === "promo-magi.png";
+            return (
+              <figure
+                key={photo.file}
+                className={
+                  soloPortrait
+                    ? "relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
+                    : "w-full overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
+                }
+              >
+                <img
+                  src={`${base}media/${photo.file}`}
+                  alt={photo.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className={
+                    soloPortrait
+                      ? "absolute inset-0 h-full w-full object-cover object-top"
+                      : "block h-auto w-full max-w-full align-middle"
+                  }
+                />
+              </figure>
+            );
+          })}
         </div>
       </motion.section>
     </div>
