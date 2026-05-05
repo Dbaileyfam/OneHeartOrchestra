@@ -44,12 +44,13 @@
   body::before {
     content: "";
     position: fixed;
-    inset: -28vmax;
+    inset: -32vmax;
     z-index: -2;
     pointer-events: none;
     background-image: url("/sunburst-heart-bg.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    /* Smaller than cover so the full ray pattern (outer wedges) stays in view while it rotates */
+    background-size: contain;
     background-position: center;
     transform-origin: 50% 50%;
     animation: oho-sunburst-heart-spin 180s linear infinite;
@@ -111,10 +112,10 @@
 
 @keyframes oho-sunburst-heart-spin {
   from {
-    transform: rotate(0deg) scale(1.06);
+    transform: rotate(0deg) scale(1);
   }
   to {
-    transform: rotate(360deg) scale(1.06);
+    transform: rotate(360deg) scale(1);
   }
 }
 
