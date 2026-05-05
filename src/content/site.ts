@@ -12,6 +12,10 @@ export const site = {
     youtube: "https://www.youtube.com/@OneHeartOrchestra",
     spotify: "",
   },
+  /** Booking / press inquiries (EPK, one-sheets). */
+  booking: {
+    email: "magivision2020@gmail.com",
+  },
 } as const;
 
 /** Spotify embeds — paste iframe `src` from Spotify → Share → Embed */

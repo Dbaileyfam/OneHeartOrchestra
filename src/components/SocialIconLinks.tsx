@@ -1,4 +1,9 @@
-import { Music2, PlayCircle, Share2, Users } from "lucide-react";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaSpotify,
+  FaYoutube,
+} from "react-icons/fa";
 import { site } from "@/content/site";
 
 const iconClass =
@@ -17,10 +22,10 @@ export function SocialIconLinks({
 }: Props) {
   const { social } = site;
   const links = [
-    { href: social.instagram, label: "Instagram", Icon: Share2 },
-    { href: social.facebook, label: "Facebook", Icon: Users },
-    { href: social.youtube, label: "YouTube", Icon: PlayCircle },
-    { href: social.spotify, label: "Spotify", Icon: Music2 },
+    { href: social.instagram, label: "Instagram", Icon: FaInstagram },
+    { href: social.facebook, label: "Facebook", Icon: FaFacebookF },
+    { href: social.youtube, label: "YouTube", Icon: FaYoutube },
+    { href: social.spotify, label: "Spotify", Icon: FaSpotify },
   ].filter((l) => l.href.length > 0);
 
   if (links.length === 0) return null;

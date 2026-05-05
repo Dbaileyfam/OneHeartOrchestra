@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Clock, ExternalLink, MapPin } from "lucide-react";
 import { SocialIconLinks } from "@/components/SocialIconLinks";
-import { album, bio, lineup, media, site, shows } from "@/content/site";
+import { bio, lineup, media, site, shows } from "@/content/site";
 import { formatShowDate, upcomingShows } from "@/utils/showFormat";
 
 const base = import.meta.env.BASE_URL;
@@ -230,25 +230,22 @@ export default function Epk() {
           </p>
         </motion.section>
 
-        <motion.section {...section} className="mx-auto max-w-3xl space-y-16">
-          <div>
-            <h2 className="font-display text-2xl text-oho-gold">Music</h2>
-            <p className="mt-4 text-oho-cream/75">
-              Featured release: <strong className="text-oho-cream">{album.title}</strong>{" "}
-              ({album.year}) — {album.tracks.length} tracks including dub mixes.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="font-display text-2xl text-oho-gold">Booking &amp; press</h2>
-            <p className="mt-4 text-oho-cream/75">
-              For routing, hospitality, and interview requests, reach out through the{" "}
-              <Link to="/contact" className="text-oho-gold underline-offset-4 hover:underline">
-                contact page
-              </Link>
-              .
-            </p>
-          </div>
+        <motion.section {...section} className="mx-auto max-w-3xl">
+          <h2 className="font-display text-2xl text-oho-gold">Booking &amp; press</h2>
+          <p className="mt-4 text-oho-cream/75">
+            For routing, hospitality, and interview requests, reach out through the{" "}
+            <Link to="/contact" className="text-oho-gold underline-offset-4 hover:underline">
+              contact page
+            </Link>{" "}
+            or email{" "}
+            <a
+              href={`mailto:${site.booking.email}?subject=${encodeURIComponent("One Heart Orchestra — booking / press")}`}
+              className="font-medium text-oho-gold underline-offset-4 transition hover:text-oho-cream hover:underline"
+            >
+              {site.booking.email}
+            </a>
+            .
+          </p>
         </motion.section>
       </div>
     </div>
