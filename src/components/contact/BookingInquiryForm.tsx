@@ -1,73 +1,30 @@
-import { useState, type FormEvent } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Loader2, Send } from "lucide-react";
 import {
+  FORM_SPREE_FORM_ID,
   FORM_SUBJECT_BOOKING,
-  formSubmitAjaxUrl,
-} from "@/config/formSubmit";
+} from "@/config/formspree";
 
 const inputClass =
   "mt-1.5 w-full rounded-xl border border-oho-border bg-oho-surface px-4 py-3 text-sm text-oho-cream placeholder:text-oho-cream/35 outline-none ring-oho-gold/0 transition focus:border-oho-gold/50 focus:ring-2 focus:ring-oho-gold/25";
 
 const labelClass = "block text-sm font-medium text-oho-cream/85";
 
+/** Field names sent to Formspree — keep in sync with ValidationError `field` props */
+type BookingFields = {
+  name: string;
+  email: string;
+  phone: string;
+  event_date: string;
+  venue: string;
+  city: string;
+  message: string;
+};
+
 export function BookingInquiryForm() {
-  const [pending, setPending] = useState(false);
-  const [done, setDone] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [state, handleSubmit, reset] = useForm<BookingFields>(FORM_SPREE_FORM_ID);
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setError(null);
-    const fd = new FormData(e.currentTarget);
-    const name = String(fd.get("name") ?? "").trim();
-    const email = String(fd.get("email") ?? "").trim();
-    const phone = String(fd.get("phone") ?? "").trim();
-    const event_date = String(fd.get("event_date") ?? "").trim();
-    const venue = String(fd.get("venue") ?? "").trim();
-    const city = String(fd.get("city") ?? "").trim();
-    const message = String(fd.get("message") ?? "").trim();
-
-    if (!name || !email || !message) {
-      setError("Please fill in your name, email, and message.");
-      return;
-    }
-
-    setPending(true);
-    try {
-      const res = await fetch(formSubmitAjaxUrl(), {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          _subject: FORM_SUBJECT_BOOKING,
-          _template: "table",
-          name,
-          email,
-          phone: phone || "—",
-          event_date: event_date || "—",
-          venue: venue || "—",
-          city: city || "—",
-          message,
-        }),
-      });
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || `Request failed (${res.status})`);
-      }
-      setDone(true);
-      e.currentTarget.reset();
-    } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Something went wrong. Try again.",
-      );
-    } finally {
-      setPending(false);
-    }
-  }
-
-  if (done) {
+  if (state.succeeded) {
     return (
       <div
         className="rounded-2xl border border-oho-gold/35 bg-oho-forest-deep/40 px-5 py-4 text-sm text-oho-cream"
@@ -80,7 +37,7 @@ export function BookingInquiryForm() {
         <button
           type="button"
           className="mt-3 text-sm font-medium text-oho-rose underline-offset-4 hover:underline"
-          onClick={() => setDone(false)}
+          onClick={() => reset()}
         >
           Send another message
         </button>
@@ -89,7 +46,10 @@ export function BookingInquiryForm() {
   }
 
   return (
-    <form className="relative space-y-5" onSubmit={onSubmit} noValidate>
+    <form className="relative space-y-5" onSubmit={handleSubmit}>
+      <input type="hidden" name="_subject" value={FORM_SUBJECT_BOOKING} />
+      <input type="hidden" name="form_type" value="booking_inquiry" />
+
       <input
         type="text"
         name="_gotcha"
@@ -112,6 +72,11 @@ export function BookingInquiryForm() {
           className={inputClass}
           placeholder="Your name"
         />
+        <ValidationError
+          field="name"
+          errors={state.errors}
+          className="mt-1 text-sm text-oho-rose"
+        />
       </div>
 
       <div>
@@ -127,6 +92,11 @@ export function BookingInquiryForm() {
           className={inputClass}
           placeholder="you@example.com"
         />
+        <ValidationError
+          field="email"
+          errors={state.errors}
+          className="mt-1 text-sm text-oho-rose"
+        />
       </div>
 
       <div>
@@ -140,6 +110,11 @@ export function BookingInquiryForm() {
           autoComplete="tel"
           className={inputClass}
           placeholder="Best number to reach you"
+        />
+        <ValidationError
+          field="phone"
+          errors={state.errors}
+          className="mt-1 text-sm text-oho-rose"
         />
       </div>
 
@@ -155,6 +130,11 @@ export function BookingInquiryForm() {
             className={inputClass}
             placeholder="e.g. June 14, 2026 or TBD"
           />
+          <ValidationError
+            field="event_date"
+            errors={state.errors}
+            className="mt-1 text-sm text-oho-rose"
+          />
         </div>
         <div>
           <label className={labelClass} htmlFor="booking-city">
@@ -166,6 +146,11 @@ export function BookingInquiryForm() {
             type="text"
             className={inputClass}
             placeholder="Where is the gig?"
+          />
+          <ValidationError
+            field="city"
+            errors={state.errors}
+            className="mt-1 text-sm text-oho-rose"
           />
         </div>
       </div>
@@ -181,6 +166,11 @@ export function BookingInquiryForm() {
           className={inputClass}
           placeholder="Festival, club, private event…"
         />
+        <ValidationError
+          field="venue"
+          errors={state.errors}
+          className="mt-1 text-sm text-oho-rose"
+        />
       </div>
 
       <div>
@@ -195,25 +185,29 @@ export function BookingInquiryForm() {
           className={`${inputClass} resize-y min-h-[120px]`}
           placeholder="Audience size, stage needs, timeline, links…"
         />
+        <ValidationError
+          field="message"
+          errors={state.errors}
+          className="mt-1 text-sm text-oho-rose"
+        />
       </div>
 
-      {error ? (
-        <p className="text-sm text-oho-rose" role="alert">
-          {error}
-        </p>
-      ) : null}
+      <ValidationError
+        errors={state.errors}
+        className="text-sm text-oho-rose"
+      />
 
       <button
         type="submit"
-        disabled={pending}
+        disabled={state.submitting}
         className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-oho-gold px-6 py-3.5 text-sm font-semibold text-oho-bg shadow-lg shadow-oho-gold/15 transition enabled:hover:bg-oho-cream disabled:opacity-60 sm:w-auto"
       >
-        {pending ? (
+        {state.submitting ? (
           <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
         ) : (
           <Send className="h-4 w-4" aria-hidden />
         )}
-        {pending ? "Sending…" : "Send booking request"}
+        {state.submitting ? "Sending…" : "Send booking request"}
       </button>
     </form>
   );

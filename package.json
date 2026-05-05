@@ -15,6 +15,7 @@
     "ship": "npm run deploy && npm run verify:pages"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.14.0",
     "react": "^19.2.5",
