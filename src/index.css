@@ -38,38 +38,21 @@
   body {
     @apply bg-oho-bg text-oho-cream font-sans antialiased overflow-x-hidden;
     background-image:
-      radial-gradient(
-        circle at -14% 114%,
-        color-mix(in oklab, var(--color-oho-gold) 34%, transparent) 0%,
-        color-mix(in oklab, var(--color-oho-rose) 18%, transparent) 24%,
-        transparent 54%
-      ),
       repeating-conic-gradient(
-        from 18deg at -18% 114%,
-        color-mix(in oklab, var(--color-oho-gold) 30%, transparent) 0deg 12deg,
-        color-mix(in oklab, var(--color-oho-cream) 18%, transparent) 12deg 24deg,
-        color-mix(in oklab, var(--color-oho-rose) 28%, transparent) 24deg 36deg,
-        color-mix(in oklab, var(--color-oho-forest) 34%, transparent) 36deg 48deg
+        from 12deg at -10% -8%,
+        rgba(245, 181, 118, 0.44) 0deg 14deg,
+        rgba(240, 228, 183, 0.34) 14deg 28deg,
+        rgba(216, 116, 111, 0.4) 28deg 42deg,
+        rgba(121, 154, 130, 0.4) 42deg 56deg
       ),
-      radial-gradient(
-        ellipse 120% 80% at 50% -20%,
-        color-mix(in oklab, var(--color-oho-forest) 35%, transparent),
-        transparent 55%
-      ),
-      radial-gradient(
-        ellipse 80% 50% at 100% 50%,
-        color-mix(in oklab, var(--color-oho-rose) 8%, transparent),
-        transparent 45%
-      ),
-      radial-gradient(
-        ellipse 70% 45% at 0% 80%,
-        color-mix(in oklab, var(--color-oho-forest-deep) 50%, transparent),
-        transparent 50%
+      linear-gradient(
+        rgba(5, 9, 7, 0.54),
+        rgba(5, 9, 7, 0.54)
       );
-    background-size: auto, 170% 170%, auto, auto, auto;
-    background-position: -14% 114%, -14% 114%, 50% -20%, 100% 50%, 0% 80%;
+    background-size: 220% 220%, auto;
+    background-position: -12% -8%, 0% 0%;
     background-attachment: fixed;
-    animation: oho-sunburst-drift 18s ease-in-out infinite alternate;
+    animation: oho-sunburst-drift 16s ease-in-out infinite alternate;
   }
 
   ::selection {
@@ -113,13 +96,13 @@
 
 @keyframes oho-sunburst-drift {
   0% {
-    background-position: -18% 118%, -22% 118%, 50% -20%, 100% 50%, 0% 80%;
+    background-position: -18% -10%, 0% 0%;
   }
   50% {
-    background-position: -12% 112%, -10% 114%, 46% -24%, 96% 54%, 3% 76%;
+    background-position: -8% -10%, 0% 0%;
   }
   100% {
-    background-position: -6% 106%, 2% 108%, 54% -16%, 100% 50%, 0% 84%;
+    background-position: 4% -6%, 0% 0%;
   }
 }
 
