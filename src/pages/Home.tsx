@@ -73,7 +73,7 @@ export default function Home() {
                 width={1024}
                 height={682}
                 decoding="async"
-                className="h-28 w-auto object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] sm:h-36 md:h-44 lg:h-48"
+                className="h-auto w-full max-w-xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] md:max-w-3xl"
               />
             </motion.div>
             <motion.p
