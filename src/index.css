@@ -38,6 +38,13 @@
   body {
     @apply bg-oho-bg text-oho-cream font-sans antialiased overflow-x-hidden;
     background-image:
+      repeating-conic-gradient(
+        from 16deg at -12% 52%,
+        color-mix(in oklab, var(--color-oho-gold) 18%, transparent) 0deg 12deg,
+        color-mix(in oklab, var(--color-oho-cream) 10%, transparent) 12deg 24deg,
+        color-mix(in oklab, var(--color-oho-rose) 16%, transparent) 24deg 36deg,
+        color-mix(in oklab, var(--color-oho-forest) 22%, transparent) 36deg 48deg
+      ),
       radial-gradient(
         ellipse 120% 80% at 50% -20%,
         color-mix(in oklab, var(--color-oho-forest) 35%, transparent),
@@ -53,7 +60,10 @@
         color-mix(in oklab, var(--color-oho-forest-deep) 50%, transparent),
         transparent 50%
       );
+    background-size: 220% 220%, auto, auto, auto;
+    background-position: -8% 54%, 50% -20%, 100% 50%, 0% 80%;
     background-attachment: fixed;
+    animation: oho-sunburst-drift 38s ease-in-out infinite alternate;
   }
 
   ::selection {
@@ -92,6 +102,26 @@
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes oho-sunburst-drift {
+  0% {
+    background-position: -12% 52%, 50% -20%, 100% 50%, 0% 80%;
+  }
+  50% {
+    background-position: -6% 48%, 48% -22%, 98% 52%, 2% 78%;
+  }
+  100% {
+    background-position: -2% 46%, 52% -18%, 100% 50%, 0% 82%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @layer base {
+    body {
+      animation: none;
+    }
   }
 }
 
