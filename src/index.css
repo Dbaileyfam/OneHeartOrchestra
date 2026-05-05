@@ -44,12 +44,12 @@
   body::before {
     content: "";
     position: fixed;
-    inset: -32vmax;
+    inset: -40vmax;
     z-index: -2;
     pointer-events: none;
     background-image: url("/sunburst-heart-bg.png");
     background-repeat: no-repeat;
-    /* Edge-to-edge fill; outer rays may crop. Slight spin scale avoids corner gaps. */
+    /* Full-bleed cover; modest spin scale (not max zoom) keeps wallpaper feel with a touch more art visible */
     background-size: cover;
     background-position: center;
     transform-origin: 50% 50%;
@@ -112,10 +112,10 @@
 
 @keyframes oho-sunburst-heart-spin {
   from {
-    transform: rotate(0deg) scale(1.08);
+    transform: rotate(0deg) scale(1.045);
   }
   to {
-    transform: rotate(360deg) scale(1.08);
+    transform: rotate(360deg) scale(1.045);
   }
 }
 
