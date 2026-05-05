@@ -166,17 +166,6 @@ export default function Epk() {
 
         <motion.section {...section}>
           <h2 className="font-display text-2xl text-oho-gold">Upcoming shows</h2>
-          <p className="mt-2 max-w-2xl text-oho-cream/65">
-            Same calendar as the{" "}
-            <Link to="/shows" className="font-medium text-oho-gold hover:underline">
-              Shows
-            </Link>{" "}
-            page — dates from{" "}
-            <code className="rounded bg-oho-surface px-1.5 py-0.5 text-sm text-oho-gold-muted">
-              site.ts
-            </code>
-            .
-          </p>
           {upcoming.length === 0 ? (
             <p className="mt-6 rounded-2xl border border-oho-border bg-oho-elevated/40 px-4 py-6 text-oho-cream/70">
               No upcoming dates listed right now — check back soon or reach out via{" "}
