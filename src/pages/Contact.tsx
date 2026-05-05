@@ -1,21 +1,9 @@
 import { motion } from "framer-motion";
-import { Mail, Share2, Users, PlayCircle, Music2 } from "lucide-react";
 import { BookingInquiryForm } from "@/components/contact/BookingInquiryForm";
 import { NewsletterSignupForm } from "@/components/contact/NewsletterSignupForm";
-import { site } from "@/content/site";
-
-const iconClass =
-  "flex h-12 w-12 items-center justify-center rounded-2xl border border-oho-border bg-oho-elevated text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold";
+import { SocialIconLinks } from "@/components/SocialIconLinks";
 
 export default function Contact() {
-  const { social, booking } = site;
-  const links = [
-    { href: social.instagram, label: "Instagram", Icon: Share2 },
-    { href: social.facebook, label: "Facebook", Icon: Users },
-    { href: social.youtube, label: "YouTube", Icon: PlayCircle },
-    { href: social.spotify, label: "Spotify", Icon: Music2 },
-  ].filter((l) => l.href.length > 0);
-
   return (
     <div className="px-4 py-14 md:py-20">
       <div className="mx-auto max-w-3xl">
@@ -26,15 +14,8 @@ export default function Contact() {
           Bookings &amp; hello
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-pretty text-center text-oho-cream/70">
-          Send a booking request below, join the email list for news, or reach the
-          crew directly at{" "}
-          <a
-            href={`mailto:${booking.email}`}
-            className="font-medium text-oho-gold underline-offset-4 hover:underline"
-          >
-            {booking.email}
-          </a>
-          .
+          Send a booking request below or join the email list for news and
+          announcements.
         </p>
 
         <motion.section
@@ -73,54 +54,7 @@ export default function Contact() {
           </div>
         </motion.section>
 
-        <motion.div
-          className="mt-12 flex flex-wrap items-center justify-center gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.15 }}
-        >
-          <a
-            href={`mailto:${booking.email}?subject=${encodeURIComponent("One Heart Orchestra — booking / inquiry")}`}
-            className="inline-flex items-center gap-2 rounded-2xl bg-oho-gold px-8 py-3.5 text-sm font-semibold text-oho-bg transition hover:bg-oho-cream"
-          >
-            <Mail className="h-4 w-4" aria-hidden />
-            Email {booking.email}
-          </a>
-          <a
-            href={booking.legacyContact}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-2xl border border-oho-border bg-oho-surface px-8 py-3.5 text-sm font-semibold text-oho-cream transition hover:border-oho-gold/50"
-          >
-            Legacy Bandzoogle contact
-          </a>
-        </motion.div>
-
-        {links.length > 0 ? (
-          <div className="mt-12 text-center">
-            <p className="text-sm font-medium text-oho-cream/55">Social</p>
-            <div className="mt-4 flex flex-wrap justify-center gap-3">
-              {links.map(({ href, label, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={iconClass}
-                  aria-label={label}
-                >
-                  <Icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <p className="mt-10 text-center text-sm text-oho-cream/50">
-            Add Instagram, Facebook, YouTube, or Spotify URLs in{" "}
-            <code className="text-oho-gold-muted">site.ts</code> and the icons will
-            appear here automatically.
-          </p>
-        )}
+        <SocialIconLinks />
       </div>
     </div>
   );

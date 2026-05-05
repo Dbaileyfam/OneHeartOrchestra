@@ -7,15 +7,10 @@ export const site = {
   legacySite: "https://oneheartorchestra.com/home",
   /** Add full URLs when ready; empty string hides the icon. */
   social: {
-    instagram: "",
-    facebook: "",
-    youtube: "",
+    instagram: "https://www.instagram.com/oneheartorchestra/",
+    facebook: "https://www.facebook.com/profile.php?id=100078637874557",
+    youtube: "https://www.youtube.com/@OneHeartOrchestra",
     spotify: "",
-  },
-  booking: {
-    /** Booking & FormSubmit delivery — keep in sync with live inbox */
-    email: "magivision2020@gmail.com",
-    legacyContact: "https://oneheartorchestra.com/contact",
   },
 } as const;
 
