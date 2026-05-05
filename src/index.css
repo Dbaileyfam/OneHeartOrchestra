@@ -49,8 +49,8 @@
     pointer-events: none;
     background-image: url("/sunburst-heart-bg.png");
     background-repeat: no-repeat;
-    /* Capped smaller than full contain so more margin around the art and ray motion reads clearly */
-    background-size: min(50vmin, 82vw) auto;
+    /* Full artwork visible (outer rays) while rotating — scales to fit viewport */
+    background-size: contain;
     background-position: center;
     transform-origin: 50% 50%;
     animation: oho-sunburst-heart-spin 180s linear infinite;
