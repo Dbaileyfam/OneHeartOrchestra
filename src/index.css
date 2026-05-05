@@ -44,14 +44,15 @@
   body::before {
     content: "";
     position: fixed;
-    inset: -24vmax;
+    inset: -28vmax;
     z-index: -2;
     pointer-events: none;
-    background-image: url("/sunrays-bg.png");
+    background-image: url("/sunburst-heart-bg.png");
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: left center;
-    transform-origin: -8% 50%;
-    animation: oho-rays-rotate 28s ease-in-out infinite alternate;
+    background-position: center;
+    transform-origin: 50% 50%;
+    animation: oho-sunburst-heart-spin 180s linear infinite;
     will-change: transform;
   }
 
@@ -108,15 +109,12 @@
   }
 }
 
-@keyframes oho-rays-rotate {
-  0% {
-    transform: rotate(-1.5deg) scale(1.06);
+@keyframes oho-sunburst-heart-spin {
+  from {
+    transform: rotate(0deg) scale(1.06);
   }
-  50% {
-    transform: rotate(0deg) scale(1.04);
-  }
-  100% {
-    transform: rotate(1.8deg) scale(1.06);
+  to {
+    transform: rotate(360deg) scale(1.06);
   }
 }
 
