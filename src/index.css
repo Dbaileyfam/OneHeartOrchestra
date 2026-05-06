@@ -44,13 +44,14 @@
   body::before {
     content: "";
     position: fixed;
-    inset: -48vmax;
+    inset: -40vmax;
     z-index: -2;
     pointer-events: none;
     background-image: url("/sunburst-heart-bg.png");
     background-repeat: no-repeat;
-    /* Full-bleed wallpaper; extra inset + spin scale avoids corner gaps while rotating */
-    background-size: cover;
+    /* ~½ the visual scale of full cover: centered, room for both stripe layers, still spins cleanly */
+    --oho-sunburst-w: min(50vw, 70vmin);
+    background-size: var(--oho-sunburst-w) auto;
     background-position: center;
     transform-origin: 50% 50%;
     animation: oho-sunburst-heart-spin 180s linear infinite;
@@ -113,10 +114,10 @@
 
 @keyframes oho-sunburst-heart-spin {
   from {
-    transform: rotate(0deg) scale(1.08);
+    transform: rotate(0deg) scale(1.1);
   }
   to {
-    transform: rotate(360deg) scale(1.08);
+    transform: rotate(360deg) scale(1.1);
   }
 }
 
