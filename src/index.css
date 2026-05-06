@@ -47,26 +47,18 @@
     inset: -55vmax;
     z-index: -2;
     pointer-events: none;
-    /*
-     * Layer 1: CSS rays (oversized, same center) extend stripe energy into the margins.
-     * Layer 2: artwork at ~200% of the prior cap so rays read longer on screen.
-     */
-    --oho-sunburst-w: min(68vw, 94vmin);
-    background-image:
-      url("/sunburst-heart-bg.png"),
-      repeating-conic-gradient(
-        from 12deg at 50% 50%,
-        rgba(185, 82, 72, 0.44) 0deg 14deg,
-        rgba(232, 218, 178, 0.38) 14deg 28deg,
-        rgba(98, 128, 102, 0.44) 28deg 42deg,
-        rgba(212, 148, 118, 0.36) 42deg 56deg
-      );
-    background-repeat: no-repeat, no-repeat;
-    background-size:
-      var(--oho-sunburst-w) auto,
-      240% 240%;
-    background-position: 50% 50%, 50% 50%;
+    background-image: repeating-conic-gradient(
+      from 12deg at 50% 50%,
+      rgba(185, 82, 72, 0.44) 0deg 14deg,
+      rgba(232, 218, 178, 0.38) 14deg 28deg,
+      rgba(98, 128, 102, 0.44) 28deg 42deg,
+      rgba(212, 148, 118, 0.36) 42deg 56deg
+    );
+    background-repeat: no-repeat;
+    background-size: 240% 240%;
+    background-position: 50% 50%;
     transform-origin: 50% 50%;
+    opacity: 0.6;
     animation: oho-sunburst-heart-spin 180s linear infinite;
     will-change: transform;
   }
@@ -74,10 +66,18 @@
   body::after {
     content: "";
     position: fixed;
-    inset: 0;
+    inset: -55vmax;
     z-index: -1;
     pointer-events: none;
-    background: rgba(5, 9, 7, 0.6);
+    --oho-sunburst-w: min(68vw, 94vmin);
+    background-image: url("/sunburst-heart-bg.png");
+    background-repeat: no-repeat;
+    background-size: var(--oho-sunburst-w) auto;
+    background-position: 50% 50%;
+    transform-origin: 50% 50%;
+    opacity: 0.6;
+    animation: oho-sunburst-heart-spin 180s linear infinite reverse;
+    will-change: transform;
   }
 
   #root {
@@ -135,7 +135,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   @layer base {
-    body::before {
+    body::before,
+    body::after {
       animation: none;
     }
   }
