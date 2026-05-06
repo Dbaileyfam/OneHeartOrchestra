@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, CalendarDays, Clapperboard, Sparkles } from "lucide-react";
 import { QuoteRotator } from "@/components/QuoteRotator";
-import { bio, site } from "@/content/site";
+import { album, bio, site } from "@/content/site";
 
 const heroLogoSrc = `${import.meta.env.BASE_URL}one-heart-logo.png`;
 
@@ -59,47 +59,77 @@ export default function Home() {
           aria-hidden
         />
 
-        <div className="mx-auto max-w-6xl">
-          <motion.div
-            className="mb-0 flex justify-center sm:justify-start"
-            {...fade}
-            transition={{ ...fade.transition, delay: 0.05 }}
-          >
-            <img
-              src={heroLogoSrc}
-              alt={site.title}
-              width={1024}
-              height={682}
-              decoding="async"
-              className="h-auto w-full max-w-3xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] md:max-w-5xl"
-            />
-          </motion.div>
-          <motion.p
-            className="-mt-2 max-w-xl text-pretty text-lg text-oho-cream/75 md:-mt-3 md:text-xl"
-            {...fade}
-            transition={{ ...fade.transition, delay: 0.1 }}
-          >
-            {site.tagline}. Tight grooves, warm stage energy, and lyrics that
-            aim straight for the soul.
-          </motion.p>
-          <motion.div
-            className="mt-8 flex flex-wrap gap-3"
-            {...fade}
-            transition={{ ...fade.transition, delay: 0.14 }}
-          >
-            <Link
-              to="/shows"
-              className="inline-flex items-center gap-2 rounded-2xl bg-oho-gold px-6 py-3 text-sm font-semibold text-oho-bg shadow-lg shadow-oho-gold/20 transition hover:bg-oho-cream"
+        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.12fr_0.88fr]">
+          <div>
+            <motion.div
+              className="mb-0 flex justify-center sm:justify-start"
+              {...fade}
+              transition={{ ...fade.transition, delay: 0.05 }}
             >
-              See shows
-              <ArrowRight className="h-4 w-4" aria-hidden />
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-2xl border border-oho-border bg-oho-surface px-6 py-3 text-sm font-semibold text-oho-cream transition hover:border-oho-gold/50"
+              <img
+                src={heroLogoSrc}
+                alt={site.title}
+                width={1024}
+                height={682}
+                decoding="async"
+                className="h-auto w-full max-w-3xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] md:max-w-5xl"
+              />
+            </motion.div>
+            <motion.p
+              className="-mt-2 max-w-xl text-pretty text-lg text-oho-cream/75 md:-mt-3 md:text-xl"
+              {...fade}
+              transition={{ ...fade.transition, delay: 0.1 }}
             >
-              Book the band
-            </Link>
+              {site.tagline}. Tight grooves, warm stage energy, and lyrics that
+              aim straight for the soul.
+            </motion.p>
+            <motion.div
+              className="mt-8 flex flex-wrap gap-3"
+              {...fade}
+              transition={{ ...fade.transition, delay: 0.14 }}
+            >
+              <Link
+                to="/shows"
+                className="inline-flex items-center gap-2 rounded-2xl bg-oho-gold px-6 py-3 text-sm font-semibold text-oho-bg shadow-lg shadow-oho-gold/20 transition hover:bg-oho-cream"
+              >
+                See shows
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-2xl border border-oho-border bg-oho-surface px-6 py-3 text-sm font-semibold text-oho-cream transition hover:border-oho-gold/50"
+              >
+                Book the band
+              </Link>
+            </motion.div>
+          </div>
+
+          <motion.div
+            className="flex justify-center lg:justify-end"
+            initial={{ opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="w-full max-w-md rounded-[2rem] border border-oho-border/80 bg-oho-surface/60 p-8 shadow-2xl backdrop-blur-md md:p-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-oho-gold-muted">
+                Debut album
+              </p>
+              <h2 className="mt-2 font-display text-2xl text-oho-cream md:text-3xl">
+                {album.title}
+              </h2>
+              <p className="mt-1 text-sm text-oho-cream/50">{album.year}</p>
+              <p className="mt-4 text-sm leading-relaxed text-oho-cream/70">
+                Stream on Spotify, watch videos, and browse photos — all on
+                Media.
+              </p>
+              <Link
+                to="/media"
+                className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-oho-gold px-5 py-2.5 text-sm font-semibold text-oho-bg shadow-lg shadow-oho-gold/20 transition hover:bg-oho-cream"
+              >
+                Watch &amp; listen
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
