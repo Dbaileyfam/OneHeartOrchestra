@@ -44,15 +44,28 @@
   body::before {
     content: "";
     position: fixed;
-    inset: -40vmax;
+    inset: -55vmax;
     z-index: -2;
     pointer-events: none;
-    background-image: url("/sunburst-heart-bg.png");
-    background-repeat: no-repeat;
-    /* ~½ the visual scale of full cover: centered, room for both stripe layers, still spins cleanly */
-    --oho-sunburst-w: min(50vw, 70vmin);
-    background-size: var(--oho-sunburst-w) auto;
-    background-position: center;
+    /*
+     * Layer 1: CSS rays (oversized, same center) extend stripe energy into the margins.
+     * Layer 2: artwork at ~200% of the prior cap so rays read longer on screen.
+     */
+    --oho-sunburst-w: min(100vw, 140vmin);
+    background-image:
+      repeating-conic-gradient(
+        from 12deg at 50% 50%,
+        rgba(185, 82, 72, 0.44) 0deg 14deg,
+        rgba(232, 218, 178, 0.38) 14deg 28deg,
+        rgba(98, 128, 102, 0.44) 28deg 42deg,
+        rgba(212, 148, 118, 0.36) 42deg 56deg
+      ),
+      url("/sunburst-heart-bg.png");
+    background-repeat: no-repeat, no-repeat;
+    background-size:
+      300% 300%,
+      var(--oho-sunburst-w) auto;
+    background-position: center, center;
     transform-origin: 50% 50%;
     animation: oho-sunburst-heart-spin 180s linear infinite;
     will-change: transform;
@@ -114,10 +127,10 @@
 
 @keyframes oho-sunburst-heart-spin {
   from {
-    transform: rotate(0deg) scale(1.1);
+    transform: rotate(0deg) scale(1.12);
   }
   to {
-    transform: rotate(360deg) scale(1.1);
+    transform: rotate(360deg) scale(1.12);
   }
 }
 
