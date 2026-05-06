@@ -22,12 +22,6 @@ export const site = {
 export const media = {
   spotifyArtistEmbedSrc:
     "https://open.spotify.com/embed/artist/0ue0G3C50nNmMpzcRgW4UV?utm_source=generator&theme=0",
-  /**
-   * Hero vinyl — single track or album embed `src` (Share → Embed → copy iframe src).
-   * If empty, the vinyl falls back to the artist embed.
-   */
-  spotifyVinylEmbedSrc:
-    "https://open.spotify.com/embed/track/5zWopQ2tNcTv3Vu4dDkpF4?utm_source=generator",
   /** YouTube watch URLs → embed uses youtube.com/embed/:id */
   youtubeVideoIds: [
     "9Lq8-dRlQuA",
