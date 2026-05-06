@@ -15,7 +15,7 @@ npm run dev
 
 ## Publish to GitHub Pages
 
-This project uses **hash routing** (`/#/music`, etc.) so it works on GitHub Pages without extra server rules.
+This project uses **hash routing** (`/#/media`, etc.) so it works on GitHub Pages without extra server rules.
 
 1. Create the repo (or use [Dbaileyfam/OneHeartOrchestra](https://github.com/Dbaileyfam/OneHeartOrchestra)) and push this folder as the repo root (or make this directory its own git repo).
 2. In the GitHub repo: **Settings → Pages → Build and deployment → Source** must be **Deploy from a branch** → **`gh-pages`** → **`/` (root)**.
