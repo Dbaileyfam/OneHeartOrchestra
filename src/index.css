@@ -44,13 +44,13 @@
   body::before {
     content: "";
     position: fixed;
-    inset: -52vmax;
+    inset: -30vmax;
     z-index: -2;
     pointer-events: none;
     background-image: url("/sunburst-heart-bg.png");
     background-repeat: no-repeat;
-    /* Full-bleed cover; modest spin scale (not max zoom) keeps wallpaper feel with a touch more art visible */
-    background-size: cover;
+    /* Zoomed-out: full art fits so inner + outer stripe rings stay visible (not a tight cover crop) */
+    background-size: contain;
     background-position: center;
     transform-origin: 50% 50%;
     animation: oho-sunburst-heart-spin 180s linear infinite;
@@ -64,7 +64,7 @@
     z-index: -1;
     pointer-events: none;
     /* Darker wash so the sunburst reads more like the original subtle site backdrop */
-    background: rgba(5, 9, 7, 0.68);
+    background: rgba(5, 9, 7, 0.6);
   }
 
   #root {
@@ -113,10 +113,10 @@
 
 @keyframes oho-sunburst-heart-spin {
   from {
-    transform: rotate(0deg) scale(0.9);
+    transform: rotate(0deg) scale(1.04);
   }
   to {
-    transform: rotate(360deg) scale(0.9);
+    transform: rotate(360deg) scale(1.04);
   }
 }
 
