@@ -51,7 +51,7 @@
      * Layer 1: CSS rays (oversized, same center) extend stripe energy into the margins.
      * Layer 2: artwork at ~200% of the prior cap so rays read longer on screen.
      */
-    --oho-sunburst-w: min(78vw, 108vmin);
+    --oho-sunburst-w: min(68vw, 94vmin);
     background-image:
       url("/sunburst-heart-bg.png"),
       repeating-conic-gradient(
@@ -64,8 +64,8 @@
     background-repeat: no-repeat, no-repeat;
     background-size:
       var(--oho-sunburst-w) auto,
-      300% 300%;
-    background-position: center, center;
+      240% 240%;
+    background-position: 50% 50%, 50% 50%;
     transform-origin: 50% 50%;
     animation: oho-sunburst-heart-spin 180s linear infinite;
     will-change: transform;
