@@ -130,7 +130,7 @@
     transform: rotate(0deg) scale(1.12);
   }
   to {
-    transform: rotate(360deg) scale(1.12);
+    transform: rotate(-360deg) scale(1.12);
   }
 }
 
