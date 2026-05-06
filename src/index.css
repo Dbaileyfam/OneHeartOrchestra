@@ -85,8 +85,8 @@
     background-position: 50% 50%;
     transform-origin: 50% 50%;
     opacity: 1;
-    /* Darken the circle itself without adding a rectangular overlay behind transparent pixels */
-    filter: brightness(0.7);
+    /* Darken + gently mute/sync hues so the circle sits closer to the background palette */
+    filter: brightness(0.6) saturate(0.86) sepia(0.08);
     animation: oho-sunburst-heart-spin 180s linear infinite reverse;
     will-change: transform;
   }
