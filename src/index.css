@@ -44,16 +44,15 @@
   body::before {
     content: "";
     position: fixed;
-    inset: -35vmax;
+    inset: -42vmax;
     z-index: -2;
     pointer-events: none;
     background-image: url("/sunburst-heart-bg.png");
     background-repeat: no-repeat;
     /*
-     * ~¼ of a full-viewport “contain” footprint: capped width keeps inner + outer stripes visible
-     * without dominating the page. Tweak --oho-sunburst-w if needed.
+     * Mid-scale: large enough to read both stripe rings while spinning; not full-bleed contain.
      */
-    --oho-sunburst-w: min(24vmin, 30vw);
+    --oho-sunburst-w: min(54vmin, 72vw);
     background-size: var(--oho-sunburst-w) auto;
     background-position: center;
     transform-origin: 50% 50%;
@@ -117,10 +116,10 @@
 
 @keyframes oho-sunburst-heart-spin {
   from {
-    transform: rotate(0deg) scale(1.12);
+    transform: rotate(0deg) scale(1.06);
   }
   to {
-    transform: rotate(360deg) scale(1.12);
+    transform: rotate(360deg) scale(1.06);
   }
 }
 
