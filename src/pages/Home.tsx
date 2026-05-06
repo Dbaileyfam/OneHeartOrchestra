@@ -73,11 +73,11 @@ export default function Home() {
                 width={1024}
                 height={682}
                 decoding="async"
-                className="h-auto w-full max-w-2xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] md:max-w-4xl"
+                className="h-auto w-full max-w-4xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] md:max-w-6xl"
               />
             </motion.div>
             <motion.p
-              className="mt-2 max-w-xl text-pretty text-lg text-oho-cream/75 md:text-xl"
+              className="mt-0 max-w-xl text-pretty text-lg text-oho-cream/75 md:text-xl"
               {...fade}
               transition={{ ...fade.transition, delay: 0.1 }}
             >
