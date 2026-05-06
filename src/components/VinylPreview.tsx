@@ -18,7 +18,8 @@ export function VinylPreview({ spotifyOnClick = false }: Props) {
   const embedSrc =
     media.spotifyVinylEmbedSrc.trim() || media.spotifyArtistEmbedSrc;
 
-  const iframeHeight = embedSrc.includes("/embed/artist/") ? 240 : 152;
+  /* Artist embed uses a shorter strip; track/album embeds match Spotify’s default (~352). */
+  const iframeHeight = embedSrc.includes("/embed/artist/") ? 240 : 352;
 
   return (
     <div className="flex w-full max-w-md flex-col items-center gap-4">
