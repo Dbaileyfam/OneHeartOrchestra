@@ -79,21 +79,14 @@
     z-index: -1;
     pointer-events: none;
     --oho-sunburst-w: min(68vw, 94vmin);
-    background-image:
-      linear-gradient(
-        rgba(5, 9, 7, var(--oho-bg-dim)),
-        rgba(5, 9, 7, var(--oho-bg-dim))
-      ),
-      url("/sunburst-heart-bg.png");
+    background-image: url("/sunburst-heart-bg.png");
     background-repeat: no-repeat;
-    background-size:
-      var(--oho-sunburst-w) auto,
-      var(--oho-sunburst-w) auto;
-    background-position:
-      50% 50%,
-      50% 50%;
+    background-size: var(--oho-sunburst-w) auto;
+    background-position: 50% 50%;
     transform-origin: 50% 50%;
     opacity: 1;
+    /* Darken the circle itself without adding a rectangular overlay behind transparent pixels */
+    filter: brightness(0.7);
     animation: oho-sunburst-heart-spin 180s linear infinite reverse;
     will-change: transform;
   }
