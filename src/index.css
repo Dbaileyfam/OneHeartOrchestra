@@ -38,7 +38,6 @@
   body {
     @apply bg-oho-bg text-oho-cream font-sans antialiased overflow-x-hidden;
     --oho-bg-dim: 0.6;
-    --oho-circle-opacity: var(--oho-bg-dim);
     position: relative;
     min-height: 100vh;
   }
@@ -80,12 +79,21 @@
     z-index: -1;
     pointer-events: none;
     --oho-sunburst-w: min(68vw, 94vmin);
-    background-image: url("/sunburst-heart-bg.png");
+    background-image:
+      linear-gradient(
+        rgba(5, 9, 7, var(--oho-bg-dim)),
+        rgba(5, 9, 7, var(--oho-bg-dim))
+      ),
+      url("/sunburst-heart-bg.png");
     background-repeat: no-repeat;
-    background-size: var(--oho-sunburst-w) auto;
-    background-position: 50% 50%;
+    background-size:
+      var(--oho-sunburst-w) auto,
+      var(--oho-sunburst-w) auto;
+    background-position:
+      50% 50%,
+      50% 50%;
     transform-origin: 50% 50%;
-    opacity: var(--oho-circle-opacity);
+    opacity: 1;
     animation: oho-sunburst-heart-spin 180s linear infinite reverse;
     will-change: transform;
   }
