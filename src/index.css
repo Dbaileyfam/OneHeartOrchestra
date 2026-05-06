@@ -37,6 +37,7 @@
 
   body {
     @apply bg-oho-bg text-oho-cream font-sans antialiased overflow-x-hidden;
+    --oho-bg-dim: 0.6;
     position: relative;
     min-height: 100vh;
   }
@@ -47,18 +48,26 @@
     inset: -55vmax;
     z-index: -2;
     pointer-events: none;
-    background-image: repeating-conic-gradient(
-      from 12deg at 50% 50%,
-      rgba(185, 82, 72, 0.44) 0deg 14deg,
-      rgba(232, 218, 178, 0.38) 14deg 28deg,
-      rgba(98, 128, 102, 0.44) 28deg 42deg,
-      rgba(212, 148, 118, 0.36) 42deg 56deg
-    );
+    background-image:
+      linear-gradient(
+        rgba(5, 9, 7, var(--oho-bg-dim)),
+        rgba(5, 9, 7, var(--oho-bg-dim))
+      ),
+      repeating-conic-gradient(
+        from 12deg at 50% 50%,
+        rgba(185, 82, 72, 0.44) 0deg 14deg,
+        rgba(232, 218, 178, 0.38) 14deg 28deg,
+        rgba(98, 128, 102, 0.44) 28deg 42deg,
+        rgba(212, 148, 118, 0.36) 42deg 56deg
+      );
     background-repeat: no-repeat;
-    background-size: 240% 240%;
-    background-position: 50% 50%;
+    background-size:
+      100% 100%,
+      240% 240%;
+    background-position:
+      50% 50%,
+      50% 50%;
     transform-origin: 50% 50%;
-    opacity: 0.6;
     animation: oho-sunburst-heart-spin 180s linear infinite;
     will-change: transform;
   }
@@ -75,7 +84,7 @@
     background-size: var(--oho-sunburst-w) auto;
     background-position: 50% 50%;
     transform-origin: 50% 50%;
-    opacity: 0.6;
+    opacity: var(--oho-bg-dim);
     animation: oho-sunburst-heart-spin 180s linear infinite reverse;
     will-change: transform;
   }
