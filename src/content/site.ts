@@ -46,6 +46,12 @@ export const media = {
     { file: "epk-log-cabin.png", alt: "The band in front of a log cabin at golden hour" },
     { file: "epk-desert-sky.png", alt: "Group portrait outdoors under a clear sky" },
   ],
+  /**
+   * Home hero “Watch & listen”: plays on hover (desktop / fine pointer only).
+   * Put a short licensed MP3 in `public/` (e.g. `media/hover-preview.mp3`) or paste a full https URL.
+   * Empty string disables. Spotify streams cannot be used here (use a file or direct MP3 URL).
+   */
+  heroWatchListenHoverAudio: "",
 } as const;
 
 export const quotes = [

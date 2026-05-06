@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, CalendarDays, Clapperboard, Sparkles } from "lucide-react";
+import { HoverAudioLink } from "@/components/HoverAudioLink";
 import { QuoteRotator } from "@/components/QuoteRotator";
-import { album, bio, site } from "@/content/site";
+import { album, bio, media, site } from "@/content/site";
 
 const heroLogoSrc = `${import.meta.env.BASE_URL}one-heart-logo.png`;
 
@@ -122,13 +123,14 @@ export default function Home() {
                 Stream on Spotify, watch videos, and browse photos — all on
                 Media.
               </p>
-              <Link
+              <HoverAudioLink
                 to="/media"
+                hoverAudio={media.heroWatchListenHoverAudio}
                 className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-oho-gold px-5 py-2.5 text-sm font-semibold text-oho-bg shadow-lg shadow-oho-gold/20 transition hover:bg-oho-cream"
               >
                 Watch &amp; listen
                 <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
+              </HoverAudioLink>
             </div>
           </motion.div>
         </div>
