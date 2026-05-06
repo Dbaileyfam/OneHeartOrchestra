@@ -63,7 +63,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <motion.div
-              className="mb-2 flex justify-center sm:justify-start"
+              className="mb-0 flex justify-center sm:justify-start"
               {...fade}
               transition={{ ...fade.transition, delay: 0.05 }}
             >
@@ -73,11 +73,11 @@ export default function Home() {
                 width={1024}
                 height={682}
                 decoding="async"
-                className="h-auto w-full max-w-xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] md:max-w-3xl"
+                className="h-auto w-full max-w-2xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] md:max-w-4xl"
               />
             </motion.div>
             <motion.p
-              className="mt-5 max-w-xl text-pretty text-lg text-oho-cream/75 md:text-xl"
+              className="mt-2 max-w-xl text-pretty text-lg text-oho-cream/75 md:text-xl"
               {...fade}
               transition={{ ...fade.transition, delay: 0.1 }}
             >
