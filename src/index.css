@@ -54,10 +54,6 @@
     --oho-sunburst-w: min(100vw, 140vmin);
     background-image:
       url("/sunburst-heart-bg.png"),
-      linear-gradient(
-        rgba(5, 9, 7, 0.6),
-        rgba(5, 9, 7, 0.6)
-      ),
       repeating-conic-gradient(
         from 12deg at 50% 50%,
         rgba(185, 82, 72, 0.44) 0deg 14deg,
@@ -65,13 +61,11 @@
         rgba(98, 128, 102, 0.44) 28deg 42deg,
         rgba(212, 148, 118, 0.36) 42deg 56deg
       );
-    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-repeat: no-repeat, no-repeat;
     background-size:
       var(--oho-sunburst-w) auto,
-      100% 100%,
-      300% 300%,
       300% 300%;
-    background-position: center, center, center;
+    background-position: center, center;
     transform-origin: 50% 50%;
     animation: oho-sunburst-heart-spin 180s linear infinite;
     will-change: transform;
@@ -83,7 +77,7 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background: transparent;
+    background: rgba(5, 9, 7, 0.6);
   }
 
   #root {
@@ -135,7 +129,7 @@
     transform: rotate(0deg) scale(1.12);
   }
   to {
-    transform: rotate(-360deg) scale(1.12);
+    transform: rotate(360deg) scale(1.12);
   }
 }
 
