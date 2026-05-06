@@ -22,6 +22,11 @@ export const site = {
 export const media = {
   spotifyArtistEmbedSrc:
     "https://open.spotify.com/embed/artist/0ue0G3C50nNmMpzcRgW4UV?utm_source=generator&theme=0",
+  /**
+   * Hero vinyl — prefer a single track or album embed for the slim player.
+   * Paste the iframe `src` from Spotify. If empty, the vinyl falls back to the artist embed.
+   */
+  spotifyVinylEmbedSrc: "",
   /** YouTube watch URLs → embed uses youtube.com/embed/:id */
   youtubeVideoIds: [
     "9Lq8-dRlQuA",

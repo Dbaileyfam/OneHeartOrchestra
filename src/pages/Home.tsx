@@ -113,10 +113,10 @@ export default function Home() {
           >
             <div className="relative rounded-[2rem] border border-oho-border/80 bg-oho-surface/60 p-10 shadow-2xl backdrop-blur-md md:p-12">
               <div className="oho-ring-pulse relative flex items-center justify-center">
-                <VinylPreview />
+                <VinylPreview spotifyOnClick />
               </div>
               <p className="mt-8 text-center text-xs uppercase tracking-[0.35em] text-oho-cream/50">
-                Hover the record
+                Hover to spin · Tap for Spotify
               </p>
             </div>
           </motion.div>
