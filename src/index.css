@@ -66,7 +66,7 @@
       240% 240%;
     background-position:
       50% 50%,
-      50% 50%;
+      50% calc(50% + 4.5vh);
     transform-origin: 50% 50%;
     animation: oho-sunburst-heart-spin 180s linear infinite;
     will-change: transform;
@@ -87,7 +87,7 @@
     opacity: 1;
     /* Darken + gently mute/sync hues so the circle sits closer to the background palette */
     filter: brightness(0.6) saturate(0.86) sepia(0.08);
-    animation: oho-sunburst-heart-spin 180s linear infinite reverse;
+    animation: oho-sunburst-circle-spin 180s linear infinite reverse;
     will-change: transform;
   }
 
@@ -141,6 +141,16 @@
   }
   to {
     transform: rotate(360deg) scale(1.12);
+  }
+}
+
+/* Circle layer only: nudge down so it reads centered with the navbar + hero stack */
+@keyframes oho-sunburst-circle-spin {
+  from {
+    transform: translateY(4.5vh) rotate(0deg) scale(1.12);
+  }
+  to {
+    transform: translateY(4.5vh) rotate(360deg) scale(1.12);
   }
 }
 
