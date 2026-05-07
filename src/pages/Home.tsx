@@ -164,7 +164,7 @@ export default function Home() {
             About Us
           </motion.h2>
           <motion.div
-            className="prose prose-invert prose-p:leading-relaxed prose-p:font-display prose-p:font-normal prose-p:text-oho-cream/85 mt-6 max-w-none"
+            className="mt-6 max-w-none space-y-5 font-display text-base font-normal leading-relaxed text-oho-cream/85 md:text-lg md:leading-relaxed"
             {...fade}
             transition={{ ...fade.transition, delay: 0.06 }}
           >

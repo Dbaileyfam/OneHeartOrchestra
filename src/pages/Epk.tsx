@@ -63,7 +63,7 @@ export default function Epk() {
 
         <motion.section {...section}>
           <h2 className="font-display text-2xl text-oho-gold">About Us</h2>
-          <div className="prose prose-invert prose-p:leading-relaxed prose-p:font-display prose-p:font-normal mt-4 max-w-3xl prose-p:text-oho-cream/80">
+          <div className="mt-4 max-w-3xl font-display text-base font-normal leading-relaxed text-oho-cream/80">
             <p>{bio.condensed}</p>
           </div>
           <p className="mt-4 text-sm text-oho-cream/60">
