@@ -47,11 +47,11 @@ export const media = {
     { file: "epk-desert-sky.png", alt: "Group portrait outdoors under a clear sky" },
   ],
   /**
-   * Home hero “Watch & listen”: plays on hover (desktop / fine pointer only).
-   * Put a short licensed MP3 in `public/` (e.g. `media/hover-preview.mp3`) or paste a full https URL.
-   * Empty string disables. Spotify streams cannot be used here (use a file or direct MP3 URL).
+   * Home hero: compact Spotify track embed (`Share → Embed` → iframe `src`, ~152px tall).
+   * Empty string hides the player (use Media page for full listen links).
    */
-  heroWatchListenHoverAudio: "",
+  spotifyHeroTrackEmbedSrc:
+    "https://open.spotify.com/embed/track/5zWopQ2tNcTv3Vu4dDkpF4?utm_source=generator&theme=0",
 } as const;
 
 export const quotes = [

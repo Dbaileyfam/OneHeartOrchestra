@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, CalendarDays, Clapperboard, Sparkles } from "lucide-react";
-import { HoverAudioLink } from "@/components/HoverAudioLink";
 import { QuoteRotator } from "@/components/QuoteRotator";
 import { album, bio, media, site } from "@/content/site";
 
@@ -120,17 +119,34 @@ export default function Home() {
               </h2>
               <p className="mt-1 text-sm text-oho-cream/50">{album.year}</p>
               <p className="mt-4 text-sm leading-relaxed text-oho-cream/70">
-                Stream on Spotify, watch videos, and browse photos — all on
-                Media.
+                Play a track below, then head to Media for videos and photos.
               </p>
-              <HoverAudioLink
-                to="/media"
-                hoverAudio={media.heroWatchListenHoverAudio}
-                className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-oho-gold px-5 py-2.5 text-sm font-semibold text-oho-bg shadow-lg shadow-oho-gold/20 transition hover:bg-oho-cream"
-              >
-                Watch &amp; listen
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              </HoverAudioLink>
+              {media.spotifyHeroTrackEmbedSrc.trim() ? (
+                <div className="mt-6 overflow-hidden rounded-xl border border-oho-border/80 bg-black/25 shadow-inner ring-1 ring-oho-gold/15">
+                  <iframe
+                    title={`Spotify — ${album.title}`}
+                    className="h-[152px] w-full border-0"
+                    src={media.spotifyHeroTrackEmbedSrc}
+                    width="100%"
+                    height={152}
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                  />
+                </div>
+              ) : null}
+              <p className="mt-4 text-center text-xs text-oho-cream/45 lg:text-left">
+                <Link
+                  to="/media"
+                  className="font-medium text-oho-gold underline-offset-4 hover:text-oho-cream hover:underline"
+                >
+                  More on Media
+                  <ArrowRight
+                    className="ml-0.5 inline-block h-3 w-3 align-middle"
+                    aria-hidden
+                  />
+                </Link>
+              </p>
             </div>
           </motion.div>
         </div>
