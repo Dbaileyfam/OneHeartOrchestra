@@ -142,7 +142,7 @@ export default function Epk() {
                     decoding="async"
                     className={
                       soloPortrait
-                        ? "absolute inset-0 h-full w-full object-cover object-[50%_8%]"
+                        ? "absolute inset-0 h-full w-full object-cover object-[50%_42%]"
                         : "block h-auto w-full max-w-full align-middle"
                     }
                   />
@@ -263,7 +263,7 @@ export default function Epk() {
         </motion.section>
 
         <motion.section {...section} className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl text-oho-gold">Booking &amp; press</h2>
+          <h2 className="font-display text-2xl text-oho-gold">Booking</h2>
           <p className="mt-4 text-oho-cream/75">
             For routing, hospitality, and interview requests, reach out through the{" "}
             <Link to="/contact" className="text-oho-gold underline-offset-4 hover:underline">

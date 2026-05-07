@@ -96,7 +96,7 @@ export default function Media() {
                   decoding="async"
                   className={
                     soloPortrait
-                      ? "absolute inset-0 h-full w-full object-cover object-[50%_8%]"
+                      ? "absolute inset-0 h-full w-full object-cover object-[50%_42%]"
                       : "block h-auto w-full max-w-full align-middle"
                   }
                 />
