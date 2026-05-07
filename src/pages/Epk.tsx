@@ -35,8 +35,8 @@ export default function Epk() {
             className="absolute left-0 top-[56%] h-auto w-full -translate-y-1/2 object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)]"
           />
         </div>
-        <p className="-mt-1 mx-auto text-lg text-oho-cream/90 md:text-xl">{site.tagline}</p>
-        <p className="mt-0 text-xs font-semibold uppercase tracking-[0.3em] text-oho-gold-muted">
+        <p className="-mt-1 mx-auto text-xl text-oho-cream/90 md:text-2xl">{site.tagline}</p>
+        <p className="mt-1 text-sm font-semibold uppercase tracking-[0.26em] text-oho-gold-muted md:text-base">
           Electronic press kit
         </p>
       </div>
