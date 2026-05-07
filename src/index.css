@@ -134,6 +134,20 @@
   }
 }
 
+@keyframes oho-glitter-pop {
+  0% {
+    transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
+    opacity: 0.95;
+  }
+  70% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.75) rotate(90deg);
+    opacity: 0;
+  }
+}
+
 @keyframes oho-sunburst-heart-spin {
   from {
     transform: rotate(0deg) scale(1.12);
@@ -194,5 +208,15 @@
     @apply absolute inset-0 rounded-full border-2 border-oho-gold/45;
     box-shadow: 0 0 28px color-mix(in oklab, var(--color-oho-rose) 35%, transparent);
     animation: oho-pulse-ring 2.8s ease-out infinite;
+  }
+
+  .oho-cursor-glitter {
+    position: absolute;
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle, rgba(255, 244, 198, 0.95) 0%, rgba(228, 184, 46, 0.92) 58%, rgba(199, 93, 111, 0.75) 100%);
+    box-shadow: 0 0 10px rgba(228, 184, 46, 0.45);
+    animation: oho-glitter-pop 560ms ease-out forwards;
+    will-change: transform, opacity;
   }
 }
