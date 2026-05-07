@@ -35,7 +35,7 @@ export default function Epk() {
 
       <div className="mx-auto mt-14 max-w-5xl space-y-16">
         <motion.section {...section} className="mx-auto max-w-3xl">
-          <h2 className="font-display text-2xl text-oho-gold">Social</h2>
+          <h2 className="oho-logo-font text-2xl text-oho-gold">Social</h2>
           <p className="mt-2 max-w-2xl text-oho-cream/65">
             Follow for clips, photos, and tour drops — same links as the{" "}
             <Link to="/contact" className="font-medium text-oho-gold hover:underline">
@@ -63,7 +63,7 @@ export default function Epk() {
 
         <motion.section {...section}>
           <h2 className="font-display text-2xl text-oho-gold">About Us</h2>
-          <div className="mt-4 max-w-3xl font-display text-base font-normal leading-relaxed text-oho-cream/80">
+          <div className="oho-logo-font mt-4 max-w-3xl text-base leading-relaxed text-oho-cream/80">
             <p>{bio.condensed}</p>
           </div>
           <p className="mt-4 text-sm text-oho-cream/60">

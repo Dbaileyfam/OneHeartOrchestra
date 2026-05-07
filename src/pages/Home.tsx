@@ -158,13 +158,13 @@ export default function Home() {
       >
         <div className="mx-auto max-w-3xl">
           <motion.h2
-            className="font-display text-3xl text-oho-cream md:text-4xl"
+            className="oho-logo-font text-3xl text-oho-cream md:text-4xl"
             {...fade}
           >
             About Us
           </motion.h2>
           <motion.div
-            className="mt-6 max-w-none space-y-5 font-display text-base font-normal leading-relaxed text-oho-cream/85 md:text-lg md:leading-relaxed"
+            className="oho-logo-font mt-6 max-w-none space-y-5 text-base leading-relaxed text-oho-cream/85 md:text-lg md:leading-relaxed"
             {...fade}
             transition={{ ...fade.transition, delay: 0.06 }}
           >
