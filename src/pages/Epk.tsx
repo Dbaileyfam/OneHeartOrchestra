@@ -165,6 +165,33 @@ export default function Epk() {
         </motion.section>
 
         <motion.section {...section}>
+          <h2 className="font-display text-2xl text-oho-gold">Downloadable assets</h2>
+          <p className="mt-2 max-w-2xl text-oho-cream/65">
+            High-res files for posters, listings, and promo materials.
+          </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {media.epkDownloadAssets.map((asset) => {
+              const href = `${base}epk/${asset.file}`;
+              return (
+                <a
+                  key={asset.file}
+                  href={href}
+                  download={asset.file}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between gap-3 rounded-2xl border border-oho-border bg-oho-elevated/60 px-4 py-3 text-sm text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
+                >
+                  <span>{asset.label}</span>
+                  <span className="text-xs uppercase tracking-[0.18em] text-oho-cream/60">
+                    Download
+                  </span>
+                </a>
+              );
+            })}
+          </div>
+        </motion.section>
+
+        <motion.section {...section}>
           <h2 className="font-display text-2xl text-oho-gold">Upcoming shows</h2>
           {upcoming.length === 0 ? (
             <p className="mt-6 rounded-2xl border border-oho-border bg-oho-elevated/40 px-4 py-6 text-oho-cream/70">

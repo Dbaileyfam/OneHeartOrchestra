@@ -46,6 +46,17 @@ export const media = {
     { file: "epk-log-cabin.png", alt: "The band in front of a log cabin at golden hour" },
     { file: "epk-desert-sky.png", alt: "Group portrait outdoors under a clear sky" },
   ],
+  /** Download-ready poster assets — files in public/epk/. */
+  epkDownloadAssets: [
+    {
+      file: "epk-heart-sunburst-poster.png",
+      label: "Heart Sunburst Poster Art",
+    },
+    {
+      file: "epk-logo-horizontal.png",
+      label: "Horizontal Band Logo",
+    },
+  ],
   /**
    * Home hero: compact Spotify track embed (`Share → Embed` → iframe `src`, ~152px tall).
    * Empty string hides the player (use Media page for full listen links).

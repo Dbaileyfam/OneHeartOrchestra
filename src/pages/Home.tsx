@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, CalendarDays, Clapperboard, Sparkles } from "lucide-react";
-import { QuoteRotator } from "@/components/QuoteRotator";
-import { album, bio, media, site } from "@/content/site";
+import { album, bio, media, quotes, site } from "@/content/site";
 
 const heroLogoSrc = `${import.meta.env.BASE_URL}one-heart-logo.png`;
 
@@ -177,16 +176,41 @@ export default function Home() {
       </section>
 
       <section className="border-t border-oho-border/60 bg-oho-bg/50 px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl text-center">
+        <div className="mx-auto max-w-6xl">
           <motion.h2
             className="font-display text-3xl text-oho-cream md:text-4xl"
             {...fade}
           >
             Words that move with the riddim
           </motion.h2>
-          <motion.div className="mx-auto mt-8 max-w-3xl" {...fade}>
-            <QuoteRotator />
-          </motion.div>
+          <motion.p
+            className="mt-3 max-w-3xl text-oho-cream/65"
+            {...fade}
+            transition={{ ...fade.transition, delay: 0.05 }}
+          >
+            Copy and paste these directly into posters, listings, and press
+            materials.
+          </motion.p>
+          <div className="mt-8 space-y-4">
+            {quotes.map((quote, idx) => (
+              <motion.div
+                key={`${idx}-${quote.slice(0, 24)}`}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ delay: idx * 0.06, duration: 0.35 }}
+                className="rounded-2xl border border-oho-border bg-oho-elevated/60 p-4 md:p-5"
+              >
+                <textarea
+                  readOnly
+                  value={quote}
+                  onFocus={(e) => e.currentTarget.select()}
+                  className="min-h-24 w-full resize-y bg-transparent text-sm leading-relaxed text-oho-cream/90 outline-none"
+                  aria-label={`Press quote ${idx + 1}`}
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
