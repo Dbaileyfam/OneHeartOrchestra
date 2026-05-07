@@ -13,15 +13,8 @@ export default function Shows() {
         <h1 className="mt-2 font-display text-4xl text-oho-cream md:text-5xl">
           Upcoming shows
         </h1>
-        <p className="mt-4 max-w-2xl text-pretty text-oho-cream/70">
-          Dates mirror your public listings — update them in{" "}
-          <code className="rounded bg-oho-surface px-1.5 py-0.5 text-sm text-oho-gold-muted">
-            src/content/site.ts
-          </code>{" "}
-          whenever new gigs land.
-        </p>
 
-        <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {shows.map((s, idx) => (
             <motion.li
               key={`${s.date}-${s.title}`}
