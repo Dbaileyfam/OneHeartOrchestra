@@ -56,6 +56,10 @@ export const media = {
       file: "epk-logo-horizontal.png",
       label: "Horizontal Band Logo",
     },
+    {
+      file: "epk-logo-fire-speakers.png",
+      label: "Logo + Fire/Speakers Poster Art",
+    },
   ],
   /**
    * Home hero: compact Spotify track embed (`Share → Embed` → iframe `src`, ~152px tall).
