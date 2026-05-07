@@ -62,16 +62,16 @@ export default function Epk() {
         </motion.section>
 
         <motion.section {...section}>
-          <h2 className="font-display text-2xl text-oho-gold">Bio</h2>
-          <div className="prose prose-invert prose-p:leading-relaxed mt-4 max-w-3xl prose-p:text-oho-cream/80">
+          <h2 className="font-display text-2xl text-oho-gold">About Us</h2>
+          <div className="prose prose-invert prose-p:leading-relaxed prose-p:font-display prose-p:font-normal mt-4 max-w-3xl prose-p:text-oho-cream/80">
             <p>{bio.condensed}</p>
           </div>
           <p className="mt-4 text-sm text-oho-cream/60">
             <Link
-              to={{ pathname: "/", search: "?scroll=bio" }}
+              to={{ pathname: "/", search: "?scroll=about" }}
               className="font-medium text-oho-gold underline-offset-4 transition hover:text-oho-cream hover:underline"
             >
-              Read the full biography on the home page
+              Read the full story on the home page
             </Link>
             .
           </p>

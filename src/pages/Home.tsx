@@ -40,8 +40,9 @@ export default function Home() {
 
   useEffect(() => {
     const q = new URLSearchParams(location.search);
-    if (q.get("scroll") !== "bio") return;
-    const el = document.getElementById("bio");
+    const scroll = q.get("scroll");
+    if (scroll !== "bio" && scroll !== "about") return;
+    const el = document.getElementById("about");
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -152,7 +153,7 @@ export default function Home() {
       </section>
 
       <section
-        id="bio"
+        id="about"
         className="border-y border-oho-border/60 bg-oho-surface/35 px-4 py-16 md:py-20"
       >
         <div className="mx-auto max-w-3xl">
@@ -160,10 +161,10 @@ export default function Home() {
             className="font-display text-3xl text-oho-cream md:text-4xl"
             {...fade}
           >
-            Bio
+            About Us
           </motion.h2>
           <motion.div
-            className="prose prose-invert prose-p:leading-relaxed mt-6 max-w-none prose-p:text-oho-cream/85"
+            className="prose prose-invert prose-p:leading-relaxed prose-p:font-display prose-p:font-normal prose-p:text-oho-cream/85 mt-6 max-w-none"
             {...fade}
             transition={{ ...fade.transition, delay: 0.06 }}
           >
