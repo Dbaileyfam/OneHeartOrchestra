@@ -36,7 +36,7 @@ export default function Epk() {
           decoding="async"
           className="mt-2 h-auto w-full max-w-3xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)]"
         />
-        <p className="mt-3 text-lg text-oho-cream/90 md:text-xl">{site.tagline}</p>
+        <p className="mt-1 text-lg text-oho-cream/90 md:text-xl">{site.tagline}</p>
       </div>
 
       <div className="mx-auto mt-14 max-w-5xl space-y-16">
