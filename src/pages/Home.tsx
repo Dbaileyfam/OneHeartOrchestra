@@ -70,7 +70,6 @@ export default function Home() {
                 src={heroLogoSrc}
                 alt={site.title}
                 width={1024}
-                height={682}
                 decoding="async"
                 className="h-auto w-full max-w-3xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] md:max-w-5xl"
               />
@@ -152,23 +151,47 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-oho-border/60 bg-oho-bg/50 px-4 py-16 md:py-24">
-        <div className="mx-auto max-w-6xl">
+      <section
+        id="bio"
+        className="border-y border-oho-border/60 bg-oho-surface/35 px-4 py-16 md:py-20"
+      >
+        <div className="mx-auto max-w-3xl">
           <motion.h2
             className="font-display text-3xl text-oho-cream md:text-4xl"
             {...fade}
           >
-            At a glance
+            Bio
           </motion.h2>
-          <motion.p
-            className="mt-3 max-w-2xl text-oho-cream/65"
+          <motion.div
+            className="prose prose-invert prose-p:leading-relaxed mt-6 max-w-none prose-p:text-oho-cream/85"
             {...fade}
-            transition={{ ...fade.transition, delay: 0.05 }}
+            transition={{ ...fade.transition, delay: 0.06 }}
           >
-            Media, dates, press kit, and contact — pick a door.
-          </motion.p>
+            <p>{bio.lead}</p>
+            {bio.extended.split("\n\n").map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+      <section className="border-t border-oho-border/60 bg-oho-bg/50 px-4 py-16 md:py-20">
+        <div className="mx-auto max-w-6xl text-center">
+          <motion.h2
+            className="font-display text-3xl text-oho-cream md:text-4xl"
+            {...fade}
+          >
+            Words that move with the riddim
+          </motion.h2>
+          <motion.div className="mx-auto mt-8 max-w-3xl" {...fade}>
+            <QuoteRotator />
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-oho-surface/35 px-4 pb-20 pt-12 md:pb-28 md:pt-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-5 md:grid-cols-3">
             {tiles.map((tile, idx) => (
               <motion.div
                 key={tile.to}
@@ -196,44 +219,6 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section
-        id="bio"
-        className="border-y border-oho-border/60 bg-oho-surface/35 px-4 py-16 md:py-20"
-      >
-        <div className="mx-auto max-w-3xl">
-          <motion.h2
-            className="font-display text-3xl text-oho-cream md:text-4xl"
-            {...fade}
-          >
-            Bio
-          </motion.h2>
-          <motion.div
-            className="prose prose-invert prose-p:leading-relaxed mt-6 max-w-none prose-p:text-oho-cream/85"
-            {...fade}
-            transition={{ ...fade.transition, delay: 0.06 }}
-          >
-            <p>{bio.lead}</p>
-            {bio.extended.split("\n\n").map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="border-y border-oho-border/60 bg-oho-bg/50 px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl text-center">
-          <motion.h2
-            className="font-display text-3xl text-oho-cream md:text-4xl"
-            {...fade}
-          >
-            Words that move with the riddim
-          </motion.h2>
-          <motion.div className="mx-auto mt-8 max-w-3xl" {...fade}>
-            <QuoteRotator />
-          </motion.div>
         </div>
       </section>
     </div>
