@@ -25,18 +25,18 @@ export default function Epk() {
   return (
     <div className="px-4 py-14 md:py-20">
       <div className="mx-auto max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-oho-gold-muted">
-          Electronic press kit
-        </p>
         <img
           src={heroLogoSrc}
           alt={site.title}
           width={1024}
           height={682}
           decoding="async"
-          className="mt-2 h-auto w-full max-w-3xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)]"
+          className="h-auto w-full max-w-3xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)]"
         />
-        <p className="mt-1 text-lg text-oho-cream/90 md:text-xl">{site.tagline}</p>
+        <p className="mt-0 text-lg text-oho-cream/90 md:text-xl">{site.tagline}</p>
+        <p className="mt-1 text-xs font-semibold uppercase tracking-[0.3em] text-oho-gold-muted">
+          Electronic press kit
+        </p>
       </div>
 
       <div className="mx-auto mt-14 max-w-5xl space-y-16">
