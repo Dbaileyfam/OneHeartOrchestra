@@ -169,23 +169,34 @@ export default function Epk() {
           <p className="mt-2 max-w-2xl text-oho-cream/65">
             High-res files for posters, listings, and promo materials.
           </p>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className="mt-6 grid gap-6 sm:grid-cols-2">
             {media.epkDownloadAssets.map((asset) => {
               const href = `${base}epk/${asset.file}`;
               return (
-                <a
+                <figure
                   key={asset.file}
-                  href={href}
-                  download={asset.file}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-between gap-3 rounded-2xl border border-oho-border bg-oho-elevated/60 px-4 py-3 text-sm text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
+                  className="overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
                 >
-                  <span>{asset.label}</span>
-                  <span className="text-xs uppercase tracking-[0.18em] text-oho-cream/60">
-                    Download
-                  </span>
-                </a>
+                  <img
+                    src={href}
+                    alt={asset.label}
+                    loading="lazy"
+                    decoding="async"
+                    className="block h-auto w-full max-w-full align-middle"
+                  />
+                  <figcaption className="flex items-center justify-between gap-3 border-t border-oho-border/70 bg-oho-elevated/70 px-4 py-3">
+                    <span className="text-sm text-oho-cream">{asset.label}</span>
+                    <a
+                      href={href}
+                      download={asset.file}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center rounded-xl border border-oho-border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
+                    >
+                      Download
+                    </a>
+                  </figcaption>
+                </figure>
               );
             })}
           </div>
