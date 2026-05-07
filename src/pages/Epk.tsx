@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Clock, ExternalLink, MapPin } from "lucide-react";
 import { SocialIconLinks } from "@/components/SocialIconLinks";
-import { bio, lineup, media, site, shows } from "@/content/site";
+import { bio, lineup, media, quotes, site, shows } from "@/content/site";
 import { formatShowDate, upcomingShows } from "@/utils/showFormat";
 
 const base = import.meta.env.BASE_URL;
@@ -187,6 +187,23 @@ export default function Epk() {
                 </figure>
               );
             })}
+          </div>
+        </motion.section>
+
+        <motion.section {...section}>
+          <h2 className="font-display text-2xl text-oho-gold">Press quotes</h2>
+          <p className="mt-2 max-w-2xl text-oho-cream/65">
+            Copy-ready lines for posters, press releases, and listings.
+          </p>
+          <div className="mt-5 space-y-3">
+            {quotes.map((quote, idx) => (
+              <div
+                key={`${idx}-${quote.slice(0, 24)}`}
+                className="rounded-xl border border-oho-border bg-oho-elevated/50 px-3 py-2.5"
+              >
+                <p className="text-sm leading-relaxed text-oho-cream/88">{quote}</p>
+              </div>
+            ))}
           </div>
         </motion.section>
 
