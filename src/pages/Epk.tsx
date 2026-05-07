@@ -30,7 +30,7 @@ export default function Epk() {
         <h1 className="mt-2 font-display text-4xl text-oho-cream md:text-5xl">
           {site.title}
         </h1>
-        <p className="mt-3 text-lg text-oho-rose md:text-xl">{site.tagline}</p>
+        <p className="mt-3 text-lg text-oho-cream/90 md:text-xl">{site.tagline}</p>
       </div>
 
       <div className="mx-auto mt-14 max-w-5xl space-y-16">
@@ -179,7 +179,7 @@ export default function Epk() {
                       download={asset.file}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center rounded-xl border border-oho-border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
+                      className="inline-flex items-center rounded-lg border border-oho-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
                     >
                       Download
                     </a>

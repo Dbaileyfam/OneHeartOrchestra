@@ -75,7 +75,7 @@ export default function Home() {
               />
             </motion.div>
             <motion.p
-              className="oho-logo-font -mt-2 max-w-xl text-pretty text-lg text-oho-cream/75 md:-mt-3 md:text-xl"
+              className="oho-logo-font -mt-2 max-w-xl text-pretty text-lg text-oho-cream/92 md:-mt-3 md:text-xl"
               {...fade}
               transition={{ ...fade.transition, delay: 0.1 }}
             >
