@@ -172,7 +172,7 @@
 
   /* Hard lock for sections that must match the logo face exactly. */
   .oho-logo-font {
-    font-family: "acid-green-poster", "Chewy", "Fredoka One", "Fredoka", sans-serif !important;
+    font-family: "Chewy", "Fredoka One", "Fredoka", "acid-green-poster", sans-serif !important;
     font-weight: 400 !important;
     font-style: normal !important;
     letter-spacing: 0.01em;
