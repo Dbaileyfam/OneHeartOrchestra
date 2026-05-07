@@ -6,6 +6,7 @@ import { bio, lineup, media, quotes, site, shows } from "@/content/site";
 import { formatShowDate, upcomingShows } from "@/utils/showFormat";
 
 const base = import.meta.env.BASE_URL;
+const heroLogoSrc = `${base}one-heart-logo.png`;
 
 const section = {
   initial: { opacity: 0, y: 16 },
@@ -27,9 +28,14 @@ export default function Epk() {
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-oho-gold-muted">
           Electronic press kit
         </p>
-        <h1 className="mt-2 font-display text-4xl text-oho-cream md:text-5xl">
-          {site.title}
-        </h1>
+        <img
+          src={heroLogoSrc}
+          alt={site.title}
+          width={1024}
+          height={682}
+          decoding="async"
+          className="mt-2 h-auto w-full max-w-3xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)]"
+        />
         <p className="mt-3 text-lg text-oho-cream/90 md:text-xl">{site.tagline}</p>
       </div>
 
