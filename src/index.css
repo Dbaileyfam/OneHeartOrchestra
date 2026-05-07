@@ -4,10 +4,9 @@
 
 /* Forest / gold / rose — single coherent story (no mint). */
 @theme {
-  --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
-  /* Logo / headings: Acid Green Poster (Typekit). Chewy + Fredoka are rounded fallbacks if Adobe is blocked. */
-  --font-display: "acid-green-poster", "Chewy", "Fredoka One", "Fredoka", sans-serif;
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "calibri", sans-serif;
+  --font-display: "calibri", sans-serif;
+  --font-serif: "calibri", sans-serif;
 
   --color-oho-bg: #050907;
   --color-oho-surface: #0b1410;
