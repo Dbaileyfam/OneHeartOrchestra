@@ -7,9 +7,6 @@ export default function Contact() {
   return (
     <div className="px-4 py-14 md:py-20">
       <div className="mx-auto max-w-3xl">
-        <p className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-oho-gold-muted">
-          Let&apos;s connect
-        </p>
         <h1 className="mt-2 text-center font-display text-4xl text-oho-cream md:text-5xl">
           Bookings &amp; hello
         </h1>
