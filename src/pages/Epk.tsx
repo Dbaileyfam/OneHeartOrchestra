@@ -142,7 +142,7 @@ export default function Epk() {
                     decoding="async"
                     className={
                       soloPortrait
-                        ? "absolute inset-0 h-full w-full object-cover object-[50%_42%]"
+                        ? "absolute inset-0 h-full w-full object-cover object-[50%_50%]"
                         : "block h-auto w-full max-w-full align-middle"
                     }
                   />
