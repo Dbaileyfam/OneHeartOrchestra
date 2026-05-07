@@ -24,16 +24,18 @@ export default function Epk() {
 
   return (
     <div className="px-4 py-14 md:py-20">
-      <div className="mx-auto max-w-3xl">
-        <img
-          src={heroLogoSrc}
-          alt={site.title}
-          width={1024}
-          height={682}
-          decoding="async"
-          className="-mb-8 h-auto w-full max-w-3xl object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)] md:-mb-10"
-        />
-        <p className="mt-0 text-lg text-oho-cream/90 md:text-xl">{site.tagline}</p>
+      <div className="mx-auto max-w-3xl text-center">
+        <div className="relative mx-auto mt-2 h-[164px] w-full max-w-3xl overflow-hidden md:h-[204px]">
+          <img
+            src={heroLogoSrc}
+            alt={site.title}
+            width={1024}
+            height={682}
+            decoding="async"
+            className="absolute left-0 top-1/2 h-auto w-full -translate-y-1/2 object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)]"
+          />
+        </div>
+        <p className="-mt-1 mx-auto text-lg text-oho-cream/90 md:text-xl">{site.tagline}</p>
         <p className="mt-0 text-xs font-semibold uppercase tracking-[0.3em] text-oho-gold-muted">
           Electronic press kit
         </p>
