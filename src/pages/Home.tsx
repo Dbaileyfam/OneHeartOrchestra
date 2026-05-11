@@ -7,7 +7,8 @@ import { album, bio, media, site } from "@/content/site";
 
 const base = import.meta.env.BASE_URL;
 /** Band photo with wordmark — home hero only; navbar still uses one-heart-logo.png */
-const heroBandSrc = `${base}band-hero-home.png`;
+/** Cache-bust when the PNG is re-exported or re-processed (transparent backdrop). */
+const heroBandSrc = `${base}band-hero-home.png?v=3`;
 
 const fade = {
   initial: { opacity: 0, y: 18 },
