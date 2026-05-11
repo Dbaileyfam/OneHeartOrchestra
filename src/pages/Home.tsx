@@ -69,16 +69,14 @@ export default function Home() {
               {...fade}
               transition={{ ...fade.transition, delay: 0.05 }}
             >
-              <div className="w-full max-w-3xl overflow-hidden rounded-2xl border border-oho-border/60 bg-white shadow-lg md:max-w-5xl">
-                <img
-                  src={heroBandSrc}
-                  alt={`${site.title} — band`}
-                  width={1200}
-                  height={800}
-                  decoding="async"
-                  className="h-auto max-h-[min(52vh,420px)] w-full object-contain object-center md:max-h-[min(56vh,480px)]"
-                />
-              </div>
+              <img
+                src={heroBandSrc}
+                alt={`${site.title} — band`}
+                width={1200}
+                height={800}
+                decoding="async"
+                className="h-auto max-h-[min(52vh,420px)] w-full max-w-3xl object-contain object-center drop-shadow-[0_10px_28px_rgba(0,0,0,0.45)] md:max-h-[min(56vh,480px)] md:max-w-5xl"
+              />
             </motion.div>
             <motion.p
               className="oho-logo-font -mt-2 max-w-xl text-pretty text-lg text-oho-cream/92 md:-mt-3 md:text-xl"
