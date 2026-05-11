@@ -66,7 +66,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.12fr_0.88fr]">
           <div>
             <motion.div
-              className="mb-0 flex justify-center sm:justify-start"
+              className="-translate-y-2 mb-0 flex justify-center sm:-translate-y-3 sm:justify-start md:-translate-y-4"
               {...fade}
               transition={{ ...fade.transition, delay: 0.05 }}
             >
@@ -76,11 +76,11 @@ export default function Home() {
                 width={1200}
                 height={800}
                 decoding="async"
-                className="h-auto max-h-[min(52vh,420px)] w-full max-w-3xl object-contain object-center drop-shadow-[0_10px_28px_rgba(0,0,0,0.45)] md:max-h-[min(56vh,480px)] md:max-w-5xl"
+                className="h-auto max-h-[min(52vh,420px)] w-full max-w-3xl object-contain object-top drop-shadow-[0_10px_28px_rgba(0,0,0,0.45)] md:max-h-[min(56vh,480px)] md:max-w-5xl"
               />
             </motion.div>
             <motion.p
-              className="oho-logo-font -mt-2 max-w-xl text-pretty text-lg text-oho-cream/92 md:-mt-3 md:text-xl"
+              className="oho-logo-font mt-4 max-w-xl text-pretty text-lg text-oho-cream/92 md:mt-5 md:text-xl"
               {...fade}
               transition={{ ...fade.transition, delay: 0.1 }}
             >
