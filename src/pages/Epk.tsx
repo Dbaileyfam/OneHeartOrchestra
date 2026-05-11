@@ -6,8 +6,7 @@ import { bio, lineup, media, quotes, site, shows } from "@/content/site";
 import { formatShowDate, upcomingShows } from "@/utils/showFormat";
 
 const base = import.meta.env.BASE_URL;
-/** Full-width band photo with wordmark — replaces wordmark-only asset in EPK header */
-const epkHeroImageSrc = `${base}epk/epk-band-photo-logo.png`;
+const heroLogoSrc = `${base}one-heart-logo.png`;
 
 const section = {
   initial: { opacity: 0, y: 16 },
@@ -26,14 +25,14 @@ export default function Epk() {
   return (
     <div className="px-4 py-14 md:py-20">
       <div className="mx-auto max-w-3xl text-center">
-        <div className="relative mx-auto mt-2 h-[220px] w-full max-w-3xl overflow-hidden rounded-2xl border border-oho-border/60 bg-white md:h-[280px]">
+        <div className="relative mx-auto mt-2 h-[186px] w-full max-w-3xl overflow-hidden md:h-[228px]">
           <img
-            src={epkHeroImageSrc}
-            alt={`${site.shortName} — band photo`}
-            width={1200}
-            height={800}
+            src={heroLogoSrc}
+            alt={site.title}
+            width={1024}
+            height={682}
             decoding="async"
-            className="absolute inset-0 h-full w-full object-contain object-center drop-shadow-[0_10px_28px_rgba(0,0,0,0.35)]"
+            className="absolute left-0 top-[56%] h-auto w-full -translate-y-1/2 object-contain drop-shadow-[0_10px_28px_rgba(0,0,0,0.5)]"
           />
         </div>
         <p className="-mt-1 mx-auto text-xl text-oho-cream/90 md:text-2xl">{site.tagline}</p>
