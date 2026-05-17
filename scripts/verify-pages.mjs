@@ -1,4 +1,4 @@
-const homepage = "https://dbaileyfam.github.io/OneHeartOrchestra/";
+const homepage = "https://www.oneheartorchestra.com/";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -71,17 +71,22 @@ async function verifyOnce() {
     html,
     /<script[^>]+src=["']([^"']+)["'][^>]*>/i
   );
-  const cssHref = extractStylesheetHref(html, "/OneHeartOrchestra/assets/");
+  const cssHref = extractStylesheetHref(html, "/assets/");
 
   if (!jsHref || !cssHref) {
     throw new Error("Could not find built JS/CSS references in live index.html.");
   }
 
-  if (!jsHref.includes("/OneHeartOrchestra/assets/")) {
+  if (!jsHref.includes("/assets/")) {
     throw new Error(`Unexpected JS path in live HTML: ${jsHref}`);
   }
-  if (!cssHref.includes("/OneHeartOrchestra/assets/")) {
+  if (!cssHref.includes("/assets/")) {
     throw new Error(`Unexpected CSS path in live HTML: ${cssHref}`);
+  }
+
+  const heroUrl = new URL("band-hero-home.png", homepage).toString();
+  if (!(await fetchOk(heroUrl))) {
+    throw new Error(`Home hero image not reachable: ${heroUrl}`);
   }
 
   const jsUrl = new URL(jsHref, homepage).toString();

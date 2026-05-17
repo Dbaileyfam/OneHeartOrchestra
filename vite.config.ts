@@ -26,8 +26,9 @@ export default defineConfig(({ mode }) => {
         },
       },
     ],
-    // GitHub Pages project site base path.
-    base: "/OneHeartOrchestra/",
+    // Root base for custom domain (www.oneheartorchestra.com). Override for
+    // github.io project URLs: VITE_BASE_PATH=/OneHeartOrchestra/ npm run build
+    base: process.env.VITE_BASE_PATH?.trim() || "/",
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
