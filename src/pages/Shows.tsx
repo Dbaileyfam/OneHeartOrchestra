@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, Clock, ExternalLink } from "lucide-react";
 import { shows } from "@/content/site";
-import { formatShowDate } from "@/utils/showFormat";
+import { formatShowDate, upcomingShows } from "@/utils/showFormat";
 
 export default function Shows() {
+  const upcoming = upcomingShows(shows);
+
   return (
     <div className="px-4 py-14 md:py-20">
       <div className="mx-auto max-w-6xl">
@@ -14,8 +17,17 @@ export default function Shows() {
           Upcoming shows
         </h1>
 
+        {upcoming.length === 0 ? (
+          <p className="mt-10 rounded-2xl border border-oho-border bg-oho-elevated/40 px-4 py-6 text-oho-cream/70">
+            No upcoming dates listed right now — check back soon or reach out via{" "}
+            <Link to="/contact" className="text-oho-gold hover:underline">
+              Contact
+            </Link>
+            .
+          </p>
+        ) : (
         <ul className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {shows.map((s, idx) => (
+          {upcoming.map((s, idx) => (
             <motion.li
               key={`${s.date}-${s.title}`}
               initial={{ opacity: 0, y: 24 }}
@@ -55,6 +67,7 @@ export default function Shows() {
             </motion.li>
           ))}
         </ul>
+        )}
       </div>
     </div>
   );

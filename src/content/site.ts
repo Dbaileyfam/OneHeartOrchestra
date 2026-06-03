@@ -113,22 +113,6 @@ export const album = {
 
 export const shows = [
   {
-    date: "2026-05-16",
-    time: "11:00 AM",
-    title: "Magi and The One Heart Orchestra",
-    venue: "Vallecito Half Marathon finish line",
-    city: "Vallecito, CO",
-    href: "https://oneheartorchestra.com/home",
-  },
-  {
-    date: "2026-05-22",
-    time: "6:00 PM",
-    title: "Kickoff celebration — Iron Horse Bicycle Classic",
-    venue: "Buckley Park",
-    city: "Durango, CO",
-    href: "https://oneheartorchestra.com/home",
-  },
-  {
     date: "2026-06-20",
     time: "4:00 PM",
     title: "Reggae in the Park, Pagosa Springs",
