@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Clock, ExternalLink, MapPin } from "lucide-react";
+import { Clock, MapPin } from "lucide-react";
 import { SocialIconLinks } from "@/components/SocialIconLinks";
 import { bio, lineup, media, quotes, site, shows } from "@/content/site";
 import { formatShowDate, upcomingShows } from "@/utils/showFormat";
@@ -250,15 +250,6 @@ export default function Epk() {
                       {s.city}
                     </span>
                   </p>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-6 inline-flex items-center justify-center gap-2 rounded-2xl border border-oho-border py-2.5 text-sm font-semibold text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
-                  >
-                    Details
-                    <ExternalLink className="h-4 w-4" aria-hidden />
-                  </a>
                 </li>
               ))}
             </ul>
