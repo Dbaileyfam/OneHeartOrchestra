@@ -120,4 +120,28 @@ export const shows = [
     city: "Pagosa Springs, CO 81147",
     href: "https://oneheartorchestra.com/home",
   },
+  {
+    date: "2026-07-03",
+    time: "5:00 PM – 8:00 PM",
+    title: "First Friday Art Walk",
+    venue: "Colorado Clay",
+    city: "Durango, CO",
+    href: "https://oneheartorchestra.com/home",
+  },
+  {
+    date: "2026-09-04",
+    time: "5:00 PM – 8:00 PM",
+    title: "First Friday Art Walk",
+    venue: "Colorado Clay",
+    city: "Durango, CO",
+    href: "https://oneheartorchestra.com/home",
+  },
+  {
+    date: "2026-09-26",
+    time: "6:00 PM – 9:00 PM",
+    title: "Magi & The One Heart Orchestra",
+    venue: "State Line Bar and Grill",
+    city: "Hwy 491, Dove Creek, CO",
+    href: "https://oneheartorchestra.com/home",
+  },
 ] as const;
