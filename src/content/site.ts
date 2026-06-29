@@ -113,14 +113,6 @@ export const album = {
 
 export const shows = [
   {
-    date: "2026-06-20",
-    time: "4:00 PM",
-    title: "Reggae in the Park, Pagosa Springs",
-    venue: "Yamaguchi Park",
-    city: "Pagosa Springs, CO 81147",
-    href: "https://oneheartorchestra.com/home",
-  },
-  {
     date: "2026-09-04",
     time: "5:00 PM – 8:00 PM",
     title: "First Friday Art Walk",
