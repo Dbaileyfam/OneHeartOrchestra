@@ -18,9 +18,8 @@ npm run dev
 This project uses **hash routing** (`/#/media`, etc.) so it works on GitHub Pages without extra server rules.
 
 1. Create the repo (or use [Dbaileyfam/OneHeartOrchestra](https://github.com/Dbaileyfam/OneHeartOrchestra)) and push this folder as the repo root (or make this directory its own git repo).
-2. In the GitHub repo: **Settings → Pages → Build and deployment → Source** must be **Deploy from a branch** → **`gh-pages`** → **`/` (root)**.
-3. Pushing to `main` will auto-deploy via GitHub Actions (`.github/workflows/deploy-gh-pages.yml`).
-4. From your machine you can also deploy manually:
+2. In the GitHub repo: **Settings → Pages → Build and deployment → Source** must be **GitHub Actions** (not “Deploy from a branch”). The workflow `.github/workflows/deploy-gh-pages.yml` publishes each push to `main`.
+3. From your machine you can also trigger a deploy by pushing to `main`, or run:
 
 ```bash
 npm run ship
@@ -28,14 +27,13 @@ npm run ship
 
 `npm run ship`:
 - builds the site
-- publishes to `gh-pages`
-- verifies the live URL is serving built assets (not source HTML)
+- verifies the live URL is serving built assets and current show dates (not source HTML)
 
-The site will be available at **https://dbaileyfam.github.io/OneHeartOrchestra/** (adjust `homepage` in `package.json` and `scripts/verify-pages.mjs` if repo name or owner changes).
+The site will be available at **https://www.oneheartorchestra.com/** (adjust `homepage` in `package.json` and `scripts/verify-pages.mjs` if the domain changes).
 
-### If the live site is blank
+### If the live site is blank or stale
 
-That almost always means Pages is publishing **`main`** while `main` contains the Vite dev `index.html` (`/src/main.tsx`). Switch Pages to **`gh-pages`** as described above, wait ~1–2 minutes, hard refresh.
+Hard refresh first. If content is still old, open **Settings → Pages** and set **Source** to **GitHub Actions**, then re-run the deploy workflow or push to `main`.
 
 ## Custom domain (optional)
 

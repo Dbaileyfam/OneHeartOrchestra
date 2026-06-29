@@ -1,7 +1,15 @@
+import { readFileSync } from "node:fs";
+
 const homepage = "https://www.oneheartorchestra.com/";
+const siteTsPath = new URL("../src/content/site.ts", import.meta.url);
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function expectedShowDates() {
+  const site = readFileSync(siteTsPath, "utf8");
+  return [...site.matchAll(/date:\s*"([^"]+)"/g)].map((m) => m[1]);
 }
 
 function extractFirst(html, re) {
@@ -98,6 +106,15 @@ async function verifyOnce() {
   }
   if (!cssOk) {
     throw new Error(`Live CSS bundle not reachable (stale index?): ${cssUrl}`);
+  }
+
+  const js = await fetchText(jsUrl);
+  for (const date of expectedShowDates()) {
+    if (!js.includes(date)) {
+      throw new Error(
+        `Live site is stale: JS bundle is missing show date ${date}.`
+      );
+    }
   }
 }
 
