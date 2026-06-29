@@ -121,14 +121,6 @@ export const shows = [
     href: "https://oneheartorchestra.com/home",
   },
   {
-    date: "2026-07-03",
-    time: "5:00 PM – 8:00 PM",
-    title: "First Friday Art Walk",
-    venue: "Colorado Clay",
-    city: "Durango, CO",
-    href: "https://oneheartorchestra.com/home",
-  },
-  {
     date: "2026-09-04",
     time: "5:00 PM – 8:00 PM",
     title: "First Friday Art Walk",
