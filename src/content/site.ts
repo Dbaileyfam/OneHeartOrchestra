@@ -113,6 +113,14 @@ export const album = {
 
 export const shows = [
   {
+    date: "2026-08-22",
+    time: "6:00 PM – 9:00 PM",
+    title: "Magi & The One Heart Orchestra",
+    venue: "Fenceline Cider",
+    city: "Mancos, CO",
+    href: "https://oneheartorchestra.com/home",
+  },
+  {
     date: "2026-09-04",
     time: "5:00 PM – 8:00 PM",
     title: "First Friday Art Walk",
