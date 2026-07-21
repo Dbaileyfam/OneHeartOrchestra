@@ -117,8 +117,10 @@ export const shows = [
     time: "6:00 PM – 9:00 PM",
     title: "Magi & The One Heart Orchestra",
     venue: "Fenceline Cider",
-    city: "Mancos, CO",
-    href: "https://oneheartorchestra.com/home",
+    city: "141 South Main Street, Mancos, CO",
+    /** File under public/ — shown on the Shows page */
+    flyer: "shows/fenceline-cider-aug22.png",
+    href: "https://oneheartorchestra.com/#/shows",
   },
   {
     date: "2026-09-04",
@@ -126,14 +128,15 @@ export const shows = [
     title: "First Friday Art Walk",
     venue: "Colorado Clay",
     city: "Durango, CO",
-    href: "https://oneheartorchestra.com/home",
+    href: "https://oneheartorchestra.com/#/shows",
   },
   {
     date: "2026-09-26",
     time: "6:00 PM – 9:00 PM",
     title: "Magi & The One Heart Orchestra",
-    venue: "State Line Bar and Grill",
-    city: "Hwy 491, Dove Creek, CO",
-    href: "https://oneheartorchestra.com/home",
+    venue: "Stateline Bar & Grill",
+    city: "69576 US-491, Dove Creek, CO 81324",
+    flyer: "shows/stateline-sept26.png",
+    href: "https://oneheartorchestra.com/#/shows",
   },
 ] as const;

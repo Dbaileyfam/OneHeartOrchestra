@@ -4,6 +4,8 @@ import { MapPin, Clock } from "lucide-react";
 import { shows } from "@/content/site";
 import { formatShowDate, upcomingShows } from "@/utils/showFormat";
 
+const base = import.meta.env.BASE_URL;
+
 export default function Shows() {
   const upcoming = upcomingShows(shows);
 
@@ -26,38 +28,54 @@ export default function Shows() {
             .
           </p>
         ) : (
-        <ul className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {upcoming.map((s, idx) => (
-            <motion.li
-              key={`${s.date}-${s.title}`}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: idx * 0.07, duration: 0.4 }}
-              whileHover={{ y: -6 }}
-              className="flex h-full flex-col rounded-3xl border border-oho-border bg-gradient-to-b from-oho-elevated to-oho-surface p-6 shadow-xl"
-            >
-              <p className="font-display text-2xl text-oho-gold">
-                {formatShowDate(s.date)}
-              </p>
-              <p className="mt-1 flex items-center gap-2 text-sm text-oho-cream/55">
-                <Clock className="h-4 w-4 shrink-0" aria-hidden />
-                {s.time}
-              </p>
-              <h2 className="mt-4 font-semibold leading-snug text-oho-cream">
-                {s.title}
-              </h2>
-              <p className="mt-2 flex flex-1 items-start gap-2 text-sm text-oho-cream/60">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-oho-gold" aria-hidden />
-                <span>
-                  {s.venue}
-                  <br />
-                  {s.city}
-                </span>
-              </p>
-            </motion.li>
-          ))}
-        </ul>
+          <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {upcoming.map((s, idx) => {
+              const flyer = "flyer" in s ? s.flyer : undefined;
+              return (
+                <motion.li
+                  key={`${s.date}-${s.title}`}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ delay: idx * 0.07, duration: 0.4 }}
+                  whileHover={{ y: -6 }}
+                  className="flex h-full flex-col overflow-hidden rounded-3xl border border-oho-border bg-gradient-to-b from-oho-elevated to-oho-surface shadow-xl"
+                >
+                  {flyer ? (
+                    <div className="border-b border-oho-border bg-black/40">
+                      <img
+                        src={`${base}${flyer}`}
+                        alt={`Flyer: ${s.title} at ${s.venue} on ${formatShowDate(s.date)}`}
+                        className="h-auto w-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  ) : null}
+
+                  <div className="flex flex-1 flex-col p-6">
+                    <p className="font-display text-2xl text-oho-gold">
+                      {formatShowDate(s.date)}
+                    </p>
+                    <p className="mt-1 flex items-center gap-2 text-sm text-oho-cream/55">
+                      <Clock className="h-4 w-4 shrink-0" aria-hidden />
+                      {s.time}
+                    </p>
+                    <h2 className="mt-4 font-semibold leading-snug text-oho-cream">
+                      {s.title}
+                    </h2>
+                    <p className="mt-2 flex flex-1 items-start gap-2 text-sm text-oho-cream/60">
+                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-oho-gold" aria-hidden />
+                      <span>
+                        {s.venue}
+                        <br />
+                        {s.city}
+                      </span>
+                    </p>
+                  </div>
+                </motion.li>
+              );
+            })}
+          </ul>
         )}
       </div>
     </div>
