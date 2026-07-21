@@ -21,67 +21,68 @@ function ShowPosterPlaceholder({
 }) {
   return (
     <div
-      className="relative flex aspect-[3/4] flex-col justify-between overflow-hidden border-b border-oho-border px-5 py-6 text-center"
+      className="relative flex aspect-[3/4] flex-col justify-between overflow-hidden border-b border-oho-border"
       aria-hidden
     >
-      {/* Rasta / wood-plank energy to match neighboring flyers */}
+      <img
+        src={`${base}media/promo-desert-sky.png`}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      {/* Warm color wash so it sits with the reggae flyers */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `
-            linear-gradient(180deg, rgba(5,9,7,0.25), rgba(5,9,7,0.55)),
-            repeating-linear-gradient(
-              90deg,
-              #1a5c3e 0px,
-              #1a5c3e 28%,
-              #e4b82e 28%,
-              #e4b82e 52%,
-              #c75d6f 52%,
-              #c75d6f 100%
-            )
+          background: `
+            linear-gradient(180deg, rgba(5,9,7,0.15) 0%, rgba(5,9,7,0.25) 35%, rgba(5,9,7,0.82) 100%),
+            linear-gradient(115deg, rgba(26,92,62,0.45), rgba(228,184,46,0.28), rgba(199,93,111,0.42))
           `,
-          backgroundSize: "100% 100%, 42px 100%",
         }}
       />
+      {/* Top stripe bar */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-40 mix-blend-soft-light"
+        className="absolute inset-x-0 top-0 h-3"
         style={{
-          backgroundImage:
-            "radial-gradient(circle at 30% 20%, rgba(242,234,219,0.45), transparent 55%), radial-gradient(circle at 80% 75%, rgba(228,184,46,0.35), transparent 50%)",
+          background:
+            "linear-gradient(90deg, #1a5c3e 0%, #1a5c3e 33%, #e4b82e 33%, #e4b82e 66%, #c75d6f 66%, #c75d6f 100%)",
+        }}
+      />
+      {/* Bottom stripe bar */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-3"
+        style={{
+          background:
+            "linear-gradient(90deg, #c75d6f 0%, #c75d6f 33%, #e4b82e 33%, #e4b82e 66%, #1a5c3e 66%, #1a5c3e 100%)",
         }}
       />
 
-      <div className="relative z-10 flex flex-col items-center gap-3">
+      <div className="relative z-10 flex flex-col items-center gap-2 px-5 pt-8">
         <img
           src={`${base}one-heart-logo.png`}
           alt=""
-          className="h-16 w-16 drop-shadow-[0_4px_14px_rgba(0,0,0,0.45)]"
+          className="h-20 w-20 drop-shadow-[0_6px_18px_rgba(0,0,0,0.55)]"
         />
-        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-oho-cream/90">
+        <p className="rounded-full bg-oho-gold/90 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.28em] text-oho-bg shadow-lg">
           Live music
         </p>
       </div>
 
-      <div className="relative z-10 space-y-3">
-        <p className="font-display text-3xl leading-none text-oho-gold drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)] md:text-4xl">
+      <div className="relative z-10 space-y-2.5 px-5 pb-8 text-center">
+        <p className="font-display text-3xl leading-none text-oho-gold drop-shadow-[0_3px_10px_rgba(0,0,0,0.75)] md:text-[2.35rem]">
           {formatShowDate(date).replace(/,\s*\d{4}$/, "")}
         </p>
-        <p className="text-sm font-semibold uppercase tracking-wide text-oho-cream">
+        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-oho-cream drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
           {time}
         </p>
-        <div className="mx-auto h-px w-16 bg-oho-gold/70" />
-        <p className="font-display text-xl leading-snug text-oho-cream drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]">
+        <div className="mx-auto h-0.5 w-14 rounded-full bg-gradient-to-r from-oho-forest via-oho-gold to-oho-rose" />
+        <p className="font-display text-2xl leading-snug text-oho-cream drop-shadow-[0_3px_10px_rgba(0,0,0,0.75)]">
           {title}
         </p>
-        <p className="text-sm font-medium uppercase tracking-[0.12em] text-oho-cream/90">
+        <p className="text-sm font-bold uppercase tracking-[0.16em] text-oho-gold">
           {venue}
         </p>
-        <p className="text-xs text-oho-cream/75">{city}</p>
+        <p className="text-xs font-medium text-oho-cream/85">{city}</p>
       </div>
-
-      <p className="relative z-10 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-oho-gold">
-        One Heart Orchestra
-      </p>
     </div>
   );
 }
