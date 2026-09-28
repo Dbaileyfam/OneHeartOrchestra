@@ -43,8 +43,8 @@ export default function Contact() {
             Email list &amp; updates
           </h2>
           <p className="mt-2 text-sm text-oho-cream/65">
-            Get show announcements, releases, and band news. Each signup sends a note
-            to the band so they can add you to their mailing tool or reply directly.
+            Get show announcements, releases, and band news. Your address goes on the
+            band&apos;s MailerLite list.
           </p>
           <div className="mt-8">
             <NewsletterSignupForm />

@@ -1,23 +1,21 @@
-import { useForm, ValidationError } from "@formspree/react";
+import { useState, type FormEvent } from "react";
 import { Loader2, Mail } from "lucide-react";
 import {
-  FORM_SPREE_FORM_ID,
-  FORM_SUBJECT_NEWSLETTER,
-} from "@/config/formspree";
+  MAILERLITE_FORM_ACTION,
+  subscribeToMailerLite,
+} from "@/config/mailerlite";
 
 const inputClass =
   "mt-1.5 w-full rounded-xl border border-oho-border bg-oho-surface px-4 py-3 text-sm text-oho-cream placeholder:text-oho-cream/35 outline-none ring-oho-gold/0 transition focus:border-oho-gold/50 focus:ring-2 focus:ring-oho-gold/25";
 
-type NewsletterFields = {
-  email: string;
-  consent: string;
-};
-
 export function NewsletterSignupForm() {
-  const [state, handleSubmit, reset] =
-    useForm<NewsletterFields>(FORM_SPREE_FORM_ID);
+  const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+  const [error, setError] = useState("");
 
-  if (state.succeeded) {
+  if (succeeded) {
     return (
       <div
         className="rounded-2xl border border-oho-gold/35 bg-oho-forest-deep/40 px-5 py-4 text-sm text-oho-cream"
@@ -25,12 +23,18 @@ export function NewsletterSignupForm() {
       >
         <p className="font-semibold text-oho-gold">You&apos;re on the list.</p>
         <p className="mt-1 text-oho-cream/75">
-          Watch your inbox for shows, releases, and band news.
+          Watch your inbox for shows, releases, and band news. If a confirmation
+          email arrives, open it so we can write to you.
         </p>
         <button
           type="button"
           className="mt-3 text-sm font-medium text-oho-rose underline-offset-4 hover:underline"
-          onClick={() => reset()}
+          onClick={() => {
+            setSucceeded(false);
+            setEmail("");
+            setConsent(false);
+            setError("");
+          }}
         >
           Sign up another email
         </button>
@@ -38,20 +42,25 @@ export function NewsletterSignupForm() {
     );
   }
 
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!consent || submitting) return;
+
+    setSubmitting(true);
+    setError("");
+    const result = await subscribeToMailerLite(email);
+    setSubmitting(false);
+
+    if (result.ok) {
+      setSucceeded(true);
+      return;
+    }
+
+    setError(result.message);
+  }
+
   return (
     <form className="relative space-y-5" onSubmit={handleSubmit}>
-      <input type="hidden" name="_subject" value={FORM_SUBJECT_NEWSLETTER} />
-      <input type="hidden" name="form_type" value="newsletter_signup" />
-
-      <input
-        type="text"
-        name="_gotcha"
-        tabIndex={-1}
-        autoComplete="off"
-        className="pointer-events-none absolute left-0 max-h-0 max-w-0 overflow-hidden opacity-0"
-        aria-label="Leave blank"
-      />
-
       <div>
         <label className="block text-sm font-medium text-oho-cream/85" htmlFor="news-email">
           Email address
@@ -64,11 +73,8 @@ export function NewsletterSignupForm() {
           autoComplete="email"
           className={inputClass}
           placeholder="you@example.com"
-        />
-        <ValidationError
-          field="email"
-          errors={state.errors}
-          className="mt-1 text-sm text-oho-rose"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
         />
       </div>
 
@@ -78,43 +84,46 @@ export function NewsletterSignupForm() {
             name="consent"
             type="checkbox"
             required
-            value="yes"
+            checked={consent}
+            onChange={(event) => setConsent(event.target.checked)}
             className="mt-1 h-4 w-4 shrink-0 rounded border-oho-border bg-oho-surface text-oho-gold focus:ring-oho-gold/40"
           />
           <span>
             I want updates about shows, music, and news from Magi &amp; The One Heart
             Orchestra. We&apos;ll use this email to stay in touch — you can unsubscribe
-            anytime when we send mail.
+            anytime from those emails.
           </span>
         </label>
-        <ValidationError
-          field="consent"
-          errors={state.errors}
-          className="mt-1 text-sm text-oho-rose"
-        />
       </div>
 
-      <ValidationError
-        errors={state.errors}
-        className="text-sm text-oho-rose"
-      />
+      {error ? (
+        <p className="text-sm text-oho-rose" role="alert">
+          {error}
+        </p>
+      ) : null}
+
+      {!MAILERLITE_FORM_ACTION ? (
+        <p className="text-sm text-oho-rose" role="status">
+          The mailing list isn&apos;t connected yet.
+        </p>
+      ) : null}
 
       <button
         type="submit"
-        disabled={state.submitting}
+        disabled={submitting || !MAILERLITE_FORM_ACTION}
         className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-oho-border bg-oho-elevated px-6 py-3.5 text-sm font-semibold text-oho-cream transition enabled:hover:border-oho-gold/50 enabled:hover:text-oho-gold disabled:opacity-60 sm:w-auto"
       >
-        {state.submitting ? (
+        {submitting ? (
           <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
         ) : (
           <Mail className="h-4 w-4" aria-hidden />
         )}
-        {state.submitting ? "Joining…" : "Subscribe for updates"}
+        {submitting ? "Joining…" : "Subscribe for updates"}
       </button>
 
       <p className="text-xs leading-relaxed text-oho-cream/45">
-        Delivered through Formspree — export addresses to Mailchimp, Buttondown, or
-        your preferred tool for blast sends.
+        Joins the band&apos;s MailerLite list. Unsubscribe anytime from any email we
+        send.
       </p>
     </form>
   );

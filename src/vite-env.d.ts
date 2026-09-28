@@ -8,6 +8,11 @@ interface ImportMetaEnv {
    * they differ from the default `acid-green` / segmented `-1` / `-2` names).
    */
   readonly VITE_ADOBE_DISPLAY_FAMILY?: string;
+  /**
+   * MailerLite embedded-form action URL:
+   * https://assets.mailerlite.com/jsonp/{accountId}/forms/{formId}/subscribe
+   */
+  readonly VITE_MAILERLITE_FORM_ACTION?: string;
 }
 
 interface ImportMeta {

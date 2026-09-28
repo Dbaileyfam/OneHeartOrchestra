@@ -36,6 +36,7 @@ jobs:
         env:
           VITE_ADOBE_FONTS_KIT: ${{ secrets.VITE_ADOBE_FONTS_KIT }}
           VITE_ADOBE_DISPLAY_FAMILY: ${{ secrets.VITE_ADOBE_DISPLAY_FAMILY }}
+          VITE_MAILERLITE_FORM_ACTION: ${{ secrets.VITE_MAILERLITE_FORM_ACTION }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
