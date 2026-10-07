@@ -227,31 +227,43 @@ export default function Epk() {
             </p>
           ) : (
             <ul className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {upcoming.map((s) => (
-                <li
-                  key={`${s.date}-${s.title}`}
-                  className="flex h-full flex-col rounded-3xl border border-oho-border bg-gradient-to-b from-oho-elevated to-oho-surface p-6 shadow-xl"
-                >
-                  <p className="font-display text-2xl text-oho-gold">
-                    {formatShowDate(s.date)}
-                  </p>
-                  <p className="mt-1 flex items-center gap-2 text-sm text-oho-cream/55">
-                    <Clock className="h-4 w-4 shrink-0" aria-hidden />
-                    {s.time}
-                  </p>
-                  <h3 className="mt-4 font-semibold leading-snug text-oho-cream">
-                    {s.title}
-                  </h3>
-                  <p className="mt-2 flex flex-1 items-start gap-2 text-sm text-oho-cream/60">
-                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-oho-gold" aria-hidden />
-                    <span>
-                      {s.venue}
-                      <br />
-                      {s.city}
-                    </span>
-                  </p>
-                </li>
-              ))}
+              {upcoming.map((s) => {
+                const plot = media.epkStagePlots.find((p) => p.date === s.date);
+                return (
+                  <li
+                    key={`${s.date}-${s.title}`}
+                    className="flex h-full flex-col rounded-3xl border border-oho-border bg-gradient-to-b from-oho-elevated to-oho-surface p-6 shadow-xl"
+                  >
+                    <p className="font-display text-2xl text-oho-gold">
+                      {formatShowDate(s.date)}
+                    </p>
+                    <p className="mt-1 flex items-center gap-2 text-sm text-oho-cream/55">
+                      <Clock className="h-4 w-4 shrink-0" aria-hidden />
+                      {s.time}
+                    </p>
+                    <h3 className="mt-4 font-semibold leading-snug text-oho-cream">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 flex flex-1 items-start gap-2 text-sm text-oho-cream/60">
+                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-oho-gold" aria-hidden />
+                      <span>
+                        {s.venue}
+                        <br />
+                        {s.city}
+                      </span>
+                    </p>
+                    {plot ? (
+                      <a
+                        href={`${base}epk/${plot.file}`}
+                        download={plot.file}
+                        className="mt-4 inline-flex w-fit items-center rounded-lg border border-oho-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
+                      >
+                        Stage plot
+                      </a>
+                    ) : null}
+                  </li>
+                );
+              })}
             </ul>
           )}
           <p className="mt-6 text-sm text-oho-cream/55">
@@ -259,6 +271,47 @@ export default function Epk() {
               View full schedule →
             </Link>
           </p>
+        </motion.section>
+
+        <motion.section {...section}>
+          <h2 className="font-display text-2xl text-oho-gold">Stage plots</h2>
+          <p className="mt-2 max-w-2xl text-oho-cream/65">
+            Input lists and stage layouts for the Jordan River Tour. Download the PDF for the venue.
+          </p>
+          <div className="mt-8 grid items-start gap-6 lg:grid-cols-3">
+            {media.epkStagePlots.map((plot) => {
+              const href = `${base}epk/${plot.file}`;
+              return (
+                <figure
+                  key={plot.file}
+                  className="overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
+                >
+                  <img
+                    src={`${base}epk/${plot.preview}`}
+                    alt={`Stage plot for ${plot.venue} on ${formatShowDate(plot.date)}`}
+                    loading="lazy"
+                    decoding="async"
+                    className="block h-auto w-full bg-white"
+                  />
+                  <figcaption className="flex items-center justify-between gap-3 border-t border-oho-border/70 bg-oho-elevated/70 px-4 py-3">
+                    <span className="text-sm text-oho-cream">
+                      {plot.venue}
+                      <span className="mt-0.5 block text-xs text-oho-cream/55">
+                        {formatShowDate(plot.date)}
+                      </span>
+                    </span>
+                    <a
+                      href={href}
+                      download={plot.file}
+                      className="inline-flex shrink-0 items-center rounded-lg border border-oho-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
+                    >
+                      Download PDF
+                    </a>
+                  </figcaption>
+                </figure>
+              );
+            })}
+          </div>
         </motion.section>
 
         <motion.section {...section} className="mx-auto max-w-3xl">

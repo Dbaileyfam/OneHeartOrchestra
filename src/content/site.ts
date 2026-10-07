@@ -61,6 +61,27 @@ export const media = {
       label: "Logo + Fire/Speakers Poster Art",
     },
   ],
+  /** Stage plots — PDF plus preview in public/epk/. `date` matches a show. */
+  epkStagePlots: [
+    {
+      date: "2026-10-15",
+      venue: "Hog Wallow Pub",
+      file: "stage-plot-hog-wallow-10-15-26.pdf",
+      preview: "stage-plot-hog-wallow-10-15-26.png",
+    },
+    {
+      date: "2026-10-16",
+      venue: "ABG's",
+      file: "stage-plot-abgs-10-16-26.pdf",
+      preview: "stage-plot-abgs-10-16-26.png",
+    },
+    {
+      date: "2026-10-17",
+      venue: "A Bar Named Sue",
+      file: "stage-plot-a-bar-named-sue-10-17-26.pdf",
+      preview: "stage-plot-a-bar-named-sue-10-17-26.png",
+    },
+  ],
   /**
    * Home hero: compact Spotify track embed (`Share → Embed` → iframe `src`, ~152px tall).
    * Empty string hides the player (use Media page for full listen links).
