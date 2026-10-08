@@ -65,21 +65,21 @@ export const media = {
   epkStagePlots: [
     {
       date: "2026-10-15",
-      venue: "Hog Wallow Pub",
+      label: "Stage plot 1",
       file: "stage-plots/hog-wallow-pub.zip",
-      downloadName: "Hog Wallow Pub.zip",
+      downloadName: "Stage plot 1.zip",
     },
     {
       date: "2026-10-16",
-      venue: "ABG's",
+      label: "Stage plot 2",
       file: "stage-plots/abgs.zip",
-      downloadName: "ABG's.zip",
+      downloadName: "Stage plot 2.zip",
     },
     {
       date: "2026-10-17",
-      venue: "A Bar Named Sue",
+      label: "Stage plot 3",
       file: "stage-plots/a-bar-named-sue.zip",
-      downloadName: "A Bar Named Sue.zip",
+      downloadName: "Stage plot 3.zip",
     },
   ],
   /**

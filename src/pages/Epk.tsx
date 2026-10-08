@@ -259,7 +259,7 @@ export default function Epk() {
                         className="mt-4 inline-flex w-fit items-center gap-1.5 rounded-lg border border-oho-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
                       >
                         <Folder className="h-3 w-3" aria-hidden />
-                        Stage plot
+                        {plot.label}
                       </a>
                     ) : null}
                   </li>
@@ -290,7 +290,7 @@ export default function Epk() {
                   <Folder className="h-8 w-8 shrink-0 text-oho-gold" aria-hidden />
                   <span className="min-w-0">
                     <span className="block truncate text-sm font-medium text-oho-cream">
-                      {plot.venue}
+                      {plot.label}
                     </span>
                     <span className="mt-0.5 block text-xs text-oho-cream/55">
                       {formatShowDate(plot.date)}
