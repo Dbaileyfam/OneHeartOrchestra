@@ -61,25 +61,25 @@ export const media = {
       label: "Logo + Fire/Speakers Poster Art",
     },
   ],
-  /** Stage plots — PDF plus preview in public/epk/. `date` matches a show. */
+  /** Stage-plot folders — zip in public/epk/stage-plots/. `date` matches a show. */
   epkStagePlots: [
     {
       date: "2026-10-15",
       venue: "Hog Wallow Pub",
-      file: "stage-plot-hog-wallow-10-15-26.pdf",
-      preview: "stage-plot-hog-wallow-10-15-26.png",
+      file: "stage-plots/hog-wallow-pub.zip",
+      downloadName: "Hog Wallow Pub.zip",
     },
     {
       date: "2026-10-16",
       venue: "ABG's",
-      file: "stage-plot-abgs-10-16-26.pdf",
-      preview: "stage-plot-abgs-10-16-26.png",
+      file: "stage-plots/abgs.zip",
+      downloadName: "ABG's.zip",
     },
     {
       date: "2026-10-17",
       venue: "A Bar Named Sue",
-      file: "stage-plot-a-bar-named-sue-10-17-26.pdf",
-      preview: "stage-plot-a-bar-named-sue-10-17-26.png",
+      file: "stage-plots/a-bar-named-sue.zip",
+      downloadName: "A Bar Named Sue.zip",
     },
   ],
   /**

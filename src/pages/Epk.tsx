@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Clock, MapPin } from "lucide-react";
+import { Clock, Folder, MapPin } from "lucide-react";
 import { SocialIconLinks } from "@/components/SocialIconLinks";
 import { bio, lineup, media, quotes, site, shows } from "@/content/site";
 import { formatShowDate, upcomingShows } from "@/utils/showFormat";
@@ -255,9 +255,10 @@ export default function Epk() {
                     {plot ? (
                       <a
                         href={`${base}epk/${plot.file}`}
-                        download={plot.file}
-                        className="mt-4 inline-flex w-fit items-center rounded-lg border border-oho-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
+                        download={plot.downloadName}
+                        className="mt-4 inline-flex w-fit items-center gap-1.5 rounded-lg border border-oho-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
                       >
+                        <Folder className="h-3 w-3" aria-hidden />
                         Stage plot
                       </a>
                     ) : null}
@@ -276,42 +277,29 @@ export default function Epk() {
         <motion.section {...section}>
           <h2 className="font-display text-2xl text-oho-gold">Stage plots</h2>
           <p className="mt-2 max-w-2xl text-oho-cream/65">
-            Input lists and stage layouts for the Jordan River Tour. Download the PDF for the venue.
+            One folder per Jordan River Tour date. Download it and the stage plot PDF is inside.
           </p>
-          <div className="mt-8 grid items-start gap-6 lg:grid-cols-3">
-            {media.epkStagePlots.map((plot) => {
-              const href = `${base}epk/${plot.file}`;
-              return (
-                <figure
-                  key={plot.file}
-                  className="overflow-hidden rounded-2xl border border-oho-border bg-oho-surface/30 ring-1 ring-oho-gold/10"
+          <ul className="mt-6 grid gap-3 sm:grid-cols-3">
+            {media.epkStagePlots.map((plot) => (
+              <li key={plot.file}>
+                <a
+                  href={`${base}epk/${plot.file}`}
+                  download={plot.downloadName}
+                  className="flex h-full items-center gap-3 rounded-2xl border border-oho-border bg-oho-elevated/60 px-4 py-3 ring-1 ring-oho-gold/10 transition hover:border-oho-gold/50"
                 >
-                  <img
-                    src={`${base}epk/${plot.preview}`}
-                    alt={`Stage plot for ${plot.venue} on ${formatShowDate(plot.date)}`}
-                    loading="lazy"
-                    decoding="async"
-                    className="block h-auto w-full bg-white"
-                  />
-                  <figcaption className="flex items-center justify-between gap-3 border-t border-oho-border/70 bg-oho-elevated/70 px-4 py-3">
-                    <span className="text-sm text-oho-cream">
+                  <Folder className="h-8 w-8 shrink-0 text-oho-gold" aria-hidden />
+                  <span className="min-w-0">
+                    <span className="block truncate text-sm font-medium text-oho-cream">
                       {plot.venue}
-                      <span className="mt-0.5 block text-xs text-oho-cream/55">
-                        {formatShowDate(plot.date)}
-                      </span>
                     </span>
-                    <a
-                      href={href}
-                      download={plot.file}
-                      className="inline-flex shrink-0 items-center rounded-lg border border-oho-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-oho-cream transition hover:border-oho-gold/50 hover:text-oho-gold"
-                    >
-                      Download PDF
-                    </a>
-                  </figcaption>
-                </figure>
-              );
-            })}
-          </div>
+                    <span className="mt-0.5 block text-xs text-oho-cream/55">
+                      {formatShowDate(plot.date)}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </motion.section>
 
         <motion.section {...section} className="mx-auto max-w-3xl">
